@@ -1,4 +1,4 @@
-//Final version!
+//Final version
 
 //Asking user for a whole number.
 
