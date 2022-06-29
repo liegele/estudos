@@ -1,4 +1,4 @@
-//Asking user for a whole number
+//Asking user for a whole number.
 
 var number;
 var primes = '';
