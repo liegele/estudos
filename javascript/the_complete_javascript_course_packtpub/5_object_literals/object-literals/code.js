@@ -32,7 +32,7 @@ function getProperty(){
 
     if(value >=0 && value <=3){
         console.log('Random result [' + value + '] --> ' + myPhone[myProperties[value]]);
-        console.log(myPhone)
+        //console.log(myPhone)
     }
 }
 
