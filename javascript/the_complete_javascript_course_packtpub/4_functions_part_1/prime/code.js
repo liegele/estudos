@@ -19,7 +19,7 @@ printPrimes(number);
 
 function printPrimes(max){
   while(n < max){
-               if(isPrime(n)){
+    if(isPrime(n)){
       counter ++;
       primes += n + ' ';
     }
