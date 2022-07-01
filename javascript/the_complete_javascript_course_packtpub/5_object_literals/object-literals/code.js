@@ -29,11 +29,9 @@ function getProperty(){
         'warranty',
         'colour'
     ]
+    
+    console.log('Random result [' + value + '] --> ' + myPhone[myProperties[value]]);
 
-    if(value >=0 && value <=3){
-        console.log('Random result [' + value + '] --> ' + myPhone[myProperties[value]]);
-        //console.log(myPhone)
-    }
 }
 
 getProperty();
