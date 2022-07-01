@@ -33,7 +33,6 @@ function printPrimes(max){
   }
 }
 
-
 function isPrime(n){
   if(n <= 1){
     //console.log('Number ' + n + ' is not a prime!');
