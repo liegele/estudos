@@ -21,6 +21,8 @@ console.log(numbers);
 let numbersSorted = numbers.sort();
 console.log(numbersSorted);
 
+console.log(shoppingList);
+
 //Map
 let addDelicious = function(n) {
     return 'Delicious ' + n;
@@ -29,4 +31,5 @@ let addDelicious = function(n) {
 let x = shoppingList.map(addDelicious);
 console.log(x);
 
-//Dell na bateria às 18:24
+//Dell na bateria às 18:24 [100%]
+//Dell na bateria às 20:36 [87%]
