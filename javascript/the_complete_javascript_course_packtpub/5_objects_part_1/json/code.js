@@ -16,7 +16,7 @@ let personJSON = {
 let personJSON2 = [
     {
         "name": "Liégele Cabral",
-        "state": "BahBrasíliaia",
+        "state": "Brasília",
         "birth": 1976
     },
     {
@@ -38,7 +38,7 @@ console.log(personJSON2);
 console.log(typeof personJSON2);
 
 //Convert to a JSON string
-let personString = JSON.stringify(personJSON);
+let personString = JSON.stringify(personJSON2);
 console.log(personString);
 console.log(typeof personString);
 
