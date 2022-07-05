@@ -1,5 +1,5 @@
 //Current date and time
-var x = new Date();
+let x = new Date();
 console.log(x);
 
 
@@ -18,7 +18,7 @@ console.log(y);
 
 //Return the day of the week for a specific date
 //
-let z = new Date(1976, 10, 22);
+let z = new Date(2019, 10, 8);
 const dayOfWeek = [
     'sunday',
     'monday',
@@ -29,4 +29,23 @@ const dayOfWeek = [
     'saturday'
 ];
 console.log(dayOfWeek[z.getDay()]);
+
+//create a new date object
+let now = new Date();
+console.log(now);
+console.log(now.getMinutes());
+
+let start, end, total;
+
+start = new Date();
+start = start.getTime();
+
+for(let i = 0; i < 1000; i ++){
+    console.log(i);
+}
+
+end = new Date();
+end = end.getTime();
+
+console.log('Total: ' + (end - start));
 
