@@ -31,5 +31,20 @@ let addDelicious = function(n) {
 let x = shoppingList.map(addDelicious);
 console.log(x);
 
+//filter
+let numberFilter = [34, 57, 10, 49, 747, 23];
+//let numberFilter = [57, 747];
+
+let y = function (n){
+    return n % 3 == 0;
+}
+
+x = numberFilter.filter(y);
+console.log(x);
+
+//every
+x = numberFilter.every(y);
+console.log(x);
+
 //Dell na bateria às 18:24 [100%]
 //Dell na bateria às 20:36 [87%]
