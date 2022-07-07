@@ -1,6 +1,11 @@
 #header{
     color:rgb(43, 174, 226);
 }
+
+p{
+    color: rgb(186, 192, 192);
+}
+
 body{
     background-color: rgb(25, 25, 25);
     font-family: 'Oswald', sans-serif;

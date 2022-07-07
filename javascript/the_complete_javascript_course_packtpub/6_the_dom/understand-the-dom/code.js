@@ -19,5 +19,5 @@ console.log(p);
 document.body.appendChild(p);
 console.log(window.document);
 
-
+console.log(document.getElementById('header'));
 
