@@ -2,8 +2,12 @@
     color:rgb(43, 174, 226);
 }
 
-p{
+p, li{
     color: rgb(186, 192, 192);
+}
+
+.green{
+    color: aquamarine;
 }
 
 body{

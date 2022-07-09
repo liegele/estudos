@@ -1,23 +1,41 @@
-// console.log(window);
-
 //Access an element by ID
-console.log(document.getElementById('header'));
-let header = document.getElementById('header');
-console.log(typeof header);
-console.log(header.innerHTML);
+let p1 = document.getElementById("p1");
+let p2 = document.getElementById("p2");
+console.log(p1);
+console.log(p1.innerHTML);
+console.log(p2);
+console.log(p2.innerHTML);
 
-//Access children of a node
+//Access a list of elements by tagname
+var paragraphs = document.getElementsByTagName("p");
+console.log(paragraphs);
+
+//Access the first element with a certain characteristic
+let firstParagraph = document.querySelector(".green");
+console.log(firstParagraph);
+
+//Access properties of one of those elements in the HTML collection
+console.log(paragraphs[2].innerHTML);
+
+//Access a children of a node
 let bodyChildren = document.body.children;
 console.log(bodyChildren);
 
 //Add a new child to the body
-let p = document.createElement('p');
+let p = document.createElement("p");
 console.log(p);
-let textNode = document.createTextNode('A new paragraph.');
+let textNode = document.createTextNode("A new paragraph");
 p.appendChild(textNode);
-console.log(p);
 document.body.appendChild(p);
 console.log(window.document);
 
-console.log(document.getElementById('header'));
+//Access a sibling
+let sibling = p1.nextElementSibling;
+console.log(sibling);
+
+//Access a first child and last child of an list
+let list = document.querySelector("ul");
+console.log(list);
+console.log(list.firstElementChild.innerHTML);
+console.log(list.lastElementChild.innerHTML);
 
