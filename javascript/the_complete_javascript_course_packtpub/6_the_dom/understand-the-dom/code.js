@@ -82,3 +82,12 @@ Array.from(ul).forEach(element => {
 let list1 = document.getElementById('list1');
 let item1 = document.getElementById('item1');
 list1.removeChild(item1);
+
+//Build a method 'remove' (or whatever name you want) which removes any elements from the DOM
+Element.prototype.remove = function(){
+    let parent = this.parentElement;
+    parent.removeChild(this);
+    // this.parentElement.removeChild(this);
+}
+
+p3.remove();
