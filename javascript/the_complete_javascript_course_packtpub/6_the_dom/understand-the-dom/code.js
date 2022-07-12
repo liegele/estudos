@@ -39,5 +39,10 @@ console.log(list);
 console.log(list.firstElementChild.innerHTML);
 console.log(list.lastElementChild.innerHTML);
 
+//Access parent element
+console.log(list.parentElement);
+
+let list2 = document.querySelector('li');
+console.log(list2.parentElement);
 
 
