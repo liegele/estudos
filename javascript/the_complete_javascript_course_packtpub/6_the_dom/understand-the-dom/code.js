@@ -14,7 +14,7 @@ console.log(paragraphs);
 let firstParagraph = document.querySelector(".green");
 console.log(firstParagraph);
 
-//Access properties of one of those elements in the HTML collection
+//Access properties of one of those elements in the HTMLcollection
 console.log(paragraphs[2].innerHTML);
 
 //Access a children of a node
@@ -38,4 +38,6 @@ let list = document.querySelector("ul");
 console.log(list);
 console.log(list.firstElementChild.innerHTML);
 console.log(list.lastElementChild.innerHTML);
+
+
 
