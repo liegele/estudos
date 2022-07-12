@@ -10,6 +10,19 @@ p, li{
     color: aquamarine;
 }
 
+button{
+    border: 0;
+    width: 120px;
+    height: 40px;
+    background-color: rgb(43, 174, 226);
+    color: #000;
+    text-align: center;
+    /* border-style:none; */
+    border-radius: 3%;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
 body{
     background-color: rgb(25, 25, 25);
     font-family: 'Oswald', sans-serif;
