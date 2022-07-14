@@ -21,14 +21,17 @@ button1.removeEventListener('click', f2);
 //Add a action to button2
 let button2 = document.getElementById('button2');
 let p1 = document.getElementById('p1');
+let h1 = document.getElementById('h1');
 let flagColor = 0;
 // console.log(typeof(flagColor));
 button2.onclick = function(){
     if(flagColor == 0){
         p1.style.color = 'rgb(43, 174, 226)';
+        h1.style.color = 'rgb(186, 192, 192)';
         flagColor = 1;
     } else {
         p1.style.color = 'rgb(186, 192, 192)';
+        h1.style.color = 'rgb(43, 174, 226)';
         flagColor = 0;
     }
 }
