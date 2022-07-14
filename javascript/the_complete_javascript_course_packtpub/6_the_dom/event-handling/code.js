@@ -36,3 +36,13 @@ button2.onclick = function(){
     }
 }
 
+h1.onclick = function(){
+    h1.style.position = 'fixed';
+    let x = 0;
+    let a = setInterval(function(){
+        x ++;
+        h1.style.top = ((100 + (Math.sin(x / 10) * 100))) + 'px';
+        h1.style.left = ((100 + (Math.sin(x) * 100))) + 'px';
+    }, 100);
+}
+
