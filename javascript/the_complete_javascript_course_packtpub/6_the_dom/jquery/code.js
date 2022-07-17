@@ -14,3 +14,5 @@ $('#p3').html('Paragraph 3 changed!');
 
 $('input').val('Liegele');
 
+// console.log(window);
+
