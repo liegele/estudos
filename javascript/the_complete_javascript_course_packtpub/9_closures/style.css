@@ -1,0 +1,16 @@
+#header, h1{
+    color:rgb(43, 174, 226);
+}
+
+p, li{
+    color: rgb(186, 192, 192);
+}
+
+.green{
+    color: aquamarine;
+}
+
+body{
+    background-color: rgb(25, 25, 25);
+    font-family: 'Oswald', sans-serif;
+}
