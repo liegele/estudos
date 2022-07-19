@@ -19,3 +19,5 @@ function logSpan(){
 div.addEventListener('click', logDiv, true);
 p.addEventListener('click', logP, true);
 span.addEventListener('click', logSpan);
+
+// console.log(this);
