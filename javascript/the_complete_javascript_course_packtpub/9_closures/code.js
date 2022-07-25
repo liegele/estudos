@@ -30,6 +30,7 @@ function f(x){
     x ++;
 }
 
+//Call function f
 f(123);
 console.log(n());
 
