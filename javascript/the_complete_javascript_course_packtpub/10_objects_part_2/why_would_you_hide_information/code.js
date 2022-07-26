@@ -21,3 +21,5 @@ phone.prototype = {
 let myPhone = new phone('iPhone', '13');
 myPhone.extendWarranty(24);
 console.log(myPhone.warranty);
+
+//Create Setters and Getters
