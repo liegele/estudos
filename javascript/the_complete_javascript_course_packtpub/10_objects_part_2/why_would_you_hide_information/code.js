@@ -27,7 +27,7 @@ phone.prototype = {
     }
 } */
 
-let myPhone = new Phone('iPhone', '13');
+const myPhone = new Phone('iPhone', '13');
 myPhone.extendWarranty(24);
 console.log(myPhone.make);
 console.log(myPhone.warranty);
