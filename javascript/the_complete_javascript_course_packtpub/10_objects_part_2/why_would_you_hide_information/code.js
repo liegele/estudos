@@ -23,7 +23,6 @@ class Phone {
         return this.#warranty;
     }
 
-
     extendWarranty(x){
         this.#warranty += 12;
     }
