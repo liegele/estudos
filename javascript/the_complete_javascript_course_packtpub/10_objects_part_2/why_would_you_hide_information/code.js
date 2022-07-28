@@ -48,3 +48,5 @@ console.log(myPhone.getModel())
 console.log(myPhone.getWarranty());
 //myPhone.#make = '';
 // console.log(myPhone.make);
+
+console.log(myPhone);
