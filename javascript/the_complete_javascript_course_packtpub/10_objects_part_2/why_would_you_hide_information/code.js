@@ -10,6 +10,20 @@ class Phone {
         this.#warranty = warranty || 12;
     }
 
+    //Getters
+    getMake(){
+        return this.#make;
+    }
+
+    getModel(){
+        return this.#model;
+    }
+
+    getWarranty(){
+        return this.#warranty;
+    }
+
+
     extendWarranty(x){
         this.#warranty += 12;
     }
@@ -29,9 +43,8 @@ phone.prototype = {
 
 const myPhone = new Phone('iPhone', '13');
 myPhone.extendWarranty(24);
-console.log(myPhone.make);
-console.log(myPhone.warranty);
-myPhone.make = '';
-console.log(myPhone.make);
-
-//Create Setters and Getters
+console.log(myPhone.getMake());
+console.log(myPhone.getModel())
+console.log(myPhone.getWarranty());
+//myPhone.#make = '';
+// console.log(myPhone.make);
