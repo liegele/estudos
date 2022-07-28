@@ -1,5 +1,6 @@
 class Phone {
 
+    //Declaring private properties
     #make;
     #model;
     #warranty;
