@@ -70,3 +70,36 @@ phone3 = Object.create(phone2)
 console.log(phone3);
 phone3.extendWarranty(12);
 console.log(phone3.warranty);
+
+//SuperClass
+class Phone{
+    constructor(make, model, warranty, color){
+        this.make = make || 'Apple';
+        this.model = model;
+        this.warranty = warranty || 12;
+        this.color = color || 'Black';
+        
+    }
+
+    extendWarranty(x){
+        this.warranty += x;
+    }
+
+}
+// console.log(Phone);
+
+//SubClass
+class SmartPhone extends Phone{
+    constructor(make, model){
+        super();
+        this.make = make;
+        this.model = model;
+    }
+}
+
+let myPhone = new SmartPhone('Samsung', 'S22 5G Ultra');
+console.log(myPhone);
+// console.log(myPhone instanceof SmartPhone);
+myPhone.extendWarranty(24);
+console.log(myPhone);
+console.log(myPhone.model);
