@@ -18,7 +18,7 @@ car2.model = 'Focus';
 // console.log(car2.__proto__);
 // console.log(Object.prototype);
 
-//Prototype of our own constructor
+/* //Prototype of our own constructor
 function phone(make, model, warranty, color){
     this.make= make;
     this.model = model;
@@ -30,4 +30,43 @@ let myPhone = new phone('Apple', 'iPhone 14', 12, 'White');
 
 //Object prototype
 console.log(myPhone.__proto__);
-console.log(phone.prototype);
+console.log(phone.prototype); */
+
+
+//Inheritance and prototype chain
+let phone1 = {
+    make: 'Apple',
+    model: 'iPhone 14',
+    warranty: 12,
+    extendWarranty(x){
+        this.warranty += x;
+    }
+}
+
+let phone2 = {
+    make: 'Samsung',
+    model: 'S22'
+}
+
+//Defining the prototype of phone2 as the phone1 object.
+phone2 = Object.create(phone1);
+// phone2.__proto__ = phone1;
+
+console.log(phone1);
+console.log(phone2);
+console.log(phone2.warranty);
+phone2.extendWarranty(24);
+console.log(phone2.warranty);
+console.log(phone2);
+
+let phone3 = {
+    make: 'Samsung',
+    model: 'S22 Ultra'
+}
+
+//Defining the prototype of phone3 as the phone2 object.
+phone3 = Object.create(phone2)
+// phone3.__proto__ = phone2;
+console.log(phone3);
+phone3.extendWarranty(12);
+console.log(phone3.warranty);
