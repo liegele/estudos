@@ -102,4 +102,13 @@ console.log(myPhone);
 // console.log(myPhone instanceof SmartPhone);
 myPhone.extendWarranty(24);
 console.log(myPhone);
-console.log(myPhone.model);
+console.log(myPhone.extendWarranty(36));
+console.log('-------')
+
+//Cycling through properties and methods of an object
+for(let i in myPhone){
+    if(myPhone.hasOwnProperty(i)){
+        console.log(i);
+    }
+    
+}
