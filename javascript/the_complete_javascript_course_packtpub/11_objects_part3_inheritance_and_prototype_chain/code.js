@@ -112,3 +112,5 @@ for(let prop in myPhone){
 
 console.log('extendWarranty' in myPhone);
 
+
+
