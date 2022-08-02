@@ -78,14 +78,11 @@ class Phone{
         this.model = model;
         this.warranty = warranty || 12;
         this.color = color || 'Black';
-        
+        //Method inside a constructor. This is not recommended.
+        this.extendWarranty = (x) => this.warranty += x;
     }
-
-    extendWarranty(x){
-        this.warranty += x;
-    }
-
 }
+
 // console.log(Phone);
 
 //SubClass
@@ -106,9 +103,12 @@ console.log(myPhone.extendWarranty(36));
 console.log('-------')
 
 //Cycling through properties and methods of an object
-for(let i in myPhone){
-    if(myPhone.hasOwnProperty(i)){
-        console.log(i);
+for(let prop in myPhone){
+    if(myPhone.hasOwnProperty(prop)){
+        console.log(prop);
     }
     
 }
+
+console.log('extendWarranty' in myPhone);
+
