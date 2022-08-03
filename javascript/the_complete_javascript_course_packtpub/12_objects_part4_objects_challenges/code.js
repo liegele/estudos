@@ -42,3 +42,15 @@ console.log(listOfProperties[0][2] + ' - ' + listOfProperties[1][2]);
 
 console.log(Object.keys(myPhone));
 console.log(new Array());
+
+console.log('----');
+
+//Object prototype chain (Climbing the prototype chain of objects until the end.)
+let myObject = new Object();
+console.log(myObject);
+
+let object1 = Object.getPrototypeOf(myObject);
+console.log(object1);
+
+let object2 = Object.getPrototypeOf(object1);
+console.log(object2); //Finish here!
