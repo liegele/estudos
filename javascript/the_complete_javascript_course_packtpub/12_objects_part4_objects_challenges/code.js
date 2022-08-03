@@ -45,7 +45,7 @@ console.log(new Array());
 
 console.log('----');
 
-//Object prototype chain (Climbing the prototype chain of objects until the end.)
+//Object prototype chain (Climb up the prototype chain of objects until the end.)
 let myObject = new Object();
 console.log(myObject);
 
