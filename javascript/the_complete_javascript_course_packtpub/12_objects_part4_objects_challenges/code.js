@@ -53,4 +53,4 @@ let object1 = Object.getPrototypeOf(myObject);
 console.log(object1);
 
 let object2 = Object.getPrototypeOf(object1);
-console.log(object2); //Finish here!
+console.log(object2); //Finish here! (null)
