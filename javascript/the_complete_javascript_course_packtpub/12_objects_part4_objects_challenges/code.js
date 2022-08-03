@@ -41,3 +41,4 @@ let listOfProperties = myPhone.returnProperties();
 console.log(listOfProperties[0][2] + ' - ' + listOfProperties[1][2]);
 
 console.log(Object.keys(myPhone));
+console.log(new Array());
