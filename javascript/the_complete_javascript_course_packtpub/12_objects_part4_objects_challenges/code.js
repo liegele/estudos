@@ -45,7 +45,7 @@ console.log(new Array());
 
 console.log('----');
 
-//Object prototype chain (Climb up the prototype chain of objects until the end.)
+//Object prototype chain (Climb up the prototype chain of objects until the end)
 let myObject = new Object();
 console.log(myObject);
 
@@ -67,6 +67,7 @@ console.log(array2);
 let array3 = Object.getPrototypeOf(array2);
 console.log(array3);
 
+//Getting all protperties while clim ub the prototype chain
 function getAllProperties(obj){
     let properties = [];
     let values = [];
