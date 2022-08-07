@@ -54,3 +54,28 @@ console.log(object1);
 
 let object2 = Object.getPrototypeOf(object1);
 console.log(object2); //Finish here! (null)
+
+console.log('----');
+
+//Climb up Array prototype chain
+let myArray = new Array();
+console.log(myArray);
+let array1 = Object.getPrototypeOf(myArray);
+console.log(array1);
+let array2 = Object.getPrototypeOf(array1);
+console.log(array2);
+let array3 = Object.getPrototypeOf(array2);
+console.log(array3);
+
+function getAllProperties(obj){
+    let properties = [];
+    let values = [];
+
+    while (Object.getPrototypeOf(obj) != null){
+        
+    }
+
+
+    return [properties, values];
+}
+
