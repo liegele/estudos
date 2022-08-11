@@ -21,13 +21,13 @@ if (bmiMark > bmiJohn) {
 let dolphinsScore1, dolphinsScore2, dolphinsScore3;
 let koalasScore1, koalasScore2, koalasScore3;
 
-/* dolphinsScore1 = 96;
+dolphinsScore1 = 96;
 dolphinsScore2 = 108;
 dolphinsScore3 = 89;
 
 koalasScore1 = 88;
 koalasScore2 = 91;
-koalasScore3 = 110; */
+koalasScore3 = 110;
 
 /* dolphinsScore1 = 97;
 dolphinsScore2 = 112;
@@ -37,13 +37,13 @@ koalasScore1 = 109;
 koalasScore2 = 95;
 koalasScore3 = 123; */
 
-dolphinsScore1 = 97;
+/* dolphinsScore1 = 97;
 dolphinsScore2 = 112;
 dolphinsScore3 = 101;
 
 koalasScore1 = 109;
 koalasScore2 = 95;
-koalasScore3 = 106;
+koalasScore3 = 106; */
 
 const dolphinsAverageScore = (dolphinsScore1 + dolphinsScore2 + dolphinsScore3) / 3;
 const koalasAverageScore = (koalasScore1 + koalasScore2 + koalasScore3) / 3;
