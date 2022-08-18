@@ -65,7 +65,7 @@ ksTotal = (ks1 > 0 ? 1 : 0) + (ks2 > 0 ? 1 : 0) + (ks3 > 0 ? 1 : 0);
 const dolphinsAverageScore = (ds1 + ds2 + ds3) / dsTotal;
 const koalasAverageScore = (ks1 + ks2 + ks3) / ksTotal;
 
-console.log(`Dolphins: ${dolphinsAverageScore.toPrecision(3)} and Koalas: ${koalasAverageScore.toPrecision(3)}`);
+console.log(`Dolphins: ${dolphinsAverageScore.toPrecision(4)} and Koalas: ${koalasAverageScore.toPrecision(4)}`);
 
 if (dolphinsAverageScore > koalasAverageScore) {
   console.log('Dolphins are the winners!');
