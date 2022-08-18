@@ -50,7 +50,7 @@ const koalasAverageScore = (koalasScore1 + koalasScore2 + koalasScore3) / 3; */
 
 //Applying bonus 1 and bonus 2 requirements.
 
-let ds1, ds2, ds3, dsTotal, ks1, ks2, ks3, ksTotal;
+/* let ds1, ds2, ds3, dsTotal, ks1, ks2, ks3, ksTotal;
 ds1 = dolphinsScore1 >= 100 ? dolphinsScore1 : 0;
 ds2 = dolphinsScore2 >= 100 ? dolphinsScore2 : 0;
 ds3 = dolphinsScore3 >= 100 ? dolphinsScore3 : 0;
@@ -73,4 +73,21 @@ if (dolphinsAverageScore > koalasAverageScore) {
   console.log('Koalas are the winners!');
 } else {
   console.log('Koalas and Dolphins have draw the match!');
-}
+} */
+
+//Coding challenge #4
+
+//tip calculator
+//15% if bill value is between 50 and 300. If bill value is different, the tip is 20%.
+//Test data: Test for bill values: 275 / 40 / 430
+
+let tip, bill, total;
+
+bill = 4153;
+
+tip = (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
+
+total = (bill + tip);
+
+console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and the total value ${total.toFixed(2)}.`);
+
