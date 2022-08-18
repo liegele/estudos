@@ -45,8 +45,25 @@ koalasScore1 = 109;
 koalasScore2 = 95;
 koalasScore3 = 106; */
 
-const dolphinsAverageScore = (dolphinsScore1 + dolphinsScore2 + dolphinsScore3) / 3;
-const koalasAverageScore = (koalasScore1 + koalasScore2 + koalasScore3) / 3;
+/* const dolphinsAverageScore = (dolphinsScore1 + dolphinsScore2 + dolphinsScore3) / 3;
+const koalasAverageScore = (koalasScore1 + koalasScore2 + koalasScore3) / 3; */
+
+//Applying bonus 1 and bonus 2 requirements.
+
+let ds1, ds2, ds3, dsTotal, ks1, ks2, ks3, ksTotal;
+ds1 = dolphinsScore1 >= 100 ? dolphinsScore1 : 0;
+ds2 = dolphinsScore2 >= 100 ? dolphinsScore2 : 0;
+ds3 = dolphinsScore3 >= 100 ? dolphinsScore3 : 0;
+dsTotal = (ds1 > 0 ? 1 : 0) + (ds2 > 0 ? 1 : 0) + (ds3 > 0 ? 1 : 0);
+
+ks1 = koalasScore1 >= 100 ? koalasScore1 : 0;
+ks2 = koalasScore2 >= 100 ? koalasScore2 : 0;
+ks3 = koalasScore3 >= 100 ? koalasScore3 : 0;
+ksTotal = (ks1 > 0 ? 1 : 0) + (ks2 > 0 ? 1 : 0) + (ks3 > 0 ? 1 : 0);
+
+
+const dolphinsAverageScore = (ds1 + ds2 + ds3) / dsTotal;
+const koalasAverageScore = (ks1 + ks2 + ks3) / ksTotal;
 
 console.log(`Dolphins: ${dolphinsAverageScore.toPrecision(3)} and Koalas: ${koalasAverageScore.toPrecision(3)}`);
 
