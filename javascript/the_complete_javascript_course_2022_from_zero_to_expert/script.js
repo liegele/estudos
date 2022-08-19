@@ -81,7 +81,7 @@ if (dolphinsAverageScore > koalasAverageScore) {
 //15% if bill value is between 50 and 300. If bill value is different, the tip is 20%.
 //Test data: Test for bill values: 275 / 40 / 430
 
-let tip, bill, total;
+/* let tip, bill, total;
 
 bill = 4153;
 
@@ -89,5 +89,33 @@ tip = (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
 
 total = (bill + tip);
 
-console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and the total value ${total.toFixed(2)}.`);
+console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and the total value ${total.toFixed(2)}.`); */
 
+
+//Challenge #1 - Functions
+
+//Arrow function
+const calcAverage = (score1, score2, score3) => { (score1 + score2 + score3) / 3 };
+
+//DATA1
+const avgDolphins1 = calcAverage(44, 23, 71);
+const avgKoalas1 = calcAverage(65, 54, 49);
+console.log(avgDolphins1, avgKoalas1);
+
+//DATA2
+const avgDolphins2 = calcAverage(85, 54, 41);
+const avgKoalas2 = calcAverage(23, 34, 27);
+console.log(avgDolphins2, avgKoalas2);
+
+function checkWinner(avgDolphins, avgKoalas) {
+  if (avgDolphins > avgKoalas && avgDolphins >= avgKoalas * 2) {
+    console.log(`Dolphins win (${avgDolphins} vs ${avgKoalas})`);
+  } else if (avgKoalas > avgDolphins && avgKoalas >= avgDolphins * 2) {
+    console.log(`Koalas win (${avgKoalas} vs ${avgDolphins})`);
+  } else {
+    console.log('No winners at all');
+  }
+}
+
+const match1 = checkWinner(avgDolphins1, avgKoalas1);
+const match2 = checkWinner(avgDolphins1, avgKoalas2);
