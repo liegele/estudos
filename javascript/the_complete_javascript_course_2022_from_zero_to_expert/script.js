@@ -1,3 +1,6 @@
+'use strict';
+
+
 /* const markMass = 78;
 const markHeight = 1.99;
 const johnMass = 92;
@@ -95,11 +98,16 @@ console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and
 //Challenge #1 - Functions
 
 //Arrow function
-const calcAverage = (score1, score2, score3) => { (score1 + score2 + score3) / 3 };
+let calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+// console.log(calcAverage(1, 2, 3));
+
+/* function calcAverage(score1, score2, score3) {
+  return (score1 + score2 + score3) / 3;
+} */
 
 //DATA1
-const avgDolphins1 = calcAverage(44, 23, 71);
-const avgKoalas1 = calcAverage(65, 54, 49);
+let avgDolphins1 = calcAverage(44, 23, 71);
+let avgKoalas1 = calcAverage(65, 54, 49);
 console.log(avgDolphins1, avgKoalas1);
 
 //DATA2
@@ -118,4 +126,4 @@ function checkWinner(avgDolphins, avgKoalas) {
 }
 
 const match1 = checkWinner(avgDolphins1, avgKoalas1);
-const match2 = checkWinner(avgDolphins1, avgKoalas2);
+const match2 = checkWinner(avgDolphins2, avgKoalas2);
