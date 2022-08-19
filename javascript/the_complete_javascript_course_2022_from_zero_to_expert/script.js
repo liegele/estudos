@@ -98,7 +98,7 @@ console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and
 //Challenge #1 - Functions
 
 //Arrow function
-let calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 // console.log(calcAverage(1, 2, 3));
 
 /* function calcAverage(score1, score2, score3) {
@@ -106,8 +106,8 @@ let calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 } */
 
 //DATA1
-let avgDolphins1 = calcAverage(44, 23, 71);
-let avgKoalas1 = calcAverage(65, 54, 49);
+const avgDolphins1 = calcAverage(44, 23, 71);
+const avgKoalas1 = calcAverage(65, 54, 49);
 console.log(avgDolphins1, avgKoalas1);
 
 //DATA2
