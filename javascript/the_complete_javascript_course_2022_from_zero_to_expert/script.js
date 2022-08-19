@@ -135,9 +135,11 @@ console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and
 const tipCalculator = bill => (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
 
 const bills = [125, 555, 44];
+console.log('bills', bills);
 const tips = [tipCalculator(bills[0]), tipCalculator(bills[1]), tipCalculator(bills[2])];
+console.log('tips', tips);
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
-console.log(total);
+console.log('total', total);
 
 
 
