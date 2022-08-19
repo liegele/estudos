@@ -18,7 +18,7 @@ if (bmiMark > bmiJohn) {
   console.log(`John's BMI(${bmiJohn.toPrecision(3)}) is higher than Mark'sBMI(${bmiMark.toPrecision(3)}).`);
 } */
 
-let dolphinsScore1, dolphinsScore2, dolphinsScore3;
+/* let dolphinsScore1, dolphinsScore2, dolphinsScore3;
 let koalasScore1, koalasScore2, koalasScore3;
 
 dolphinsScore1 = 96;
@@ -27,7 +27,7 @@ dolphinsScore3 = 89;
 
 koalasScore1 = 88;
 koalasScore2 = 91;
-koalasScore3 = 110;
+koalasScore3 = 110; */
 
 /* dolphinsScore1 = 97;
 dolphinsScore2 = 112;
