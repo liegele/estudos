@@ -95,35 +95,50 @@ total = (bill + tip);
 console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and the total value ${total.toFixed(2)}.`); */
 
 
-//Challenge #1 - Functions
+// //Challenge #1 - Functions
 
-//Arrow function
-const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
-// console.log(calcAverage(1, 2, 3));
+// //Arrow function
+// const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+// // console.log(calcAverage(1, 2, 3));
 
-/* function calcAverage(score1, score2, score3) {
-  return (score1 + score2 + score3) / 3;
-} */
+// /* function calcAverage(score1, score2, score3) {
+//   return (score1 + score2 + score3) / 3;
+// } */
 
-//DATA1
-const avgDolphins1 = calcAverage(44, 23, 71);
-const avgKoalas1 = calcAverage(65, 54, 49);
-console.log(avgDolphins1, avgKoalas1);
+// //DATA1
+// const avgDolphins1 = calcAverage(44, 23, 71);
+// const avgKoalas1 = calcAverage(65, 54, 49);
+// console.log(avgDolphins1, avgKoalas1);
 
-//DATA2
-const avgDolphins2 = calcAverage(85, 54, 41);
-const avgKoalas2 = calcAverage(23, 34, 27);
-console.log(avgDolphins2, avgKoalas2);
+// //DATA2
+// const avgDolphins2 = calcAverage(85, 54, 41);
+// const avgKoalas2 = calcAverage(23, 34, 27);
+// console.log(avgDolphins2, avgKoalas2);
 
-function checkWinner(avgDolphins, avgKoalas) {
-  if (avgDolphins >= avgKoalas * 2) {
-    console.log(`Dolphins win (${avgDolphins} vs ${avgKoalas})`);
-  } else if (avgKoalas >= avgDolphins * 2) {
-    console.log(`Koalas win (${avgKoalas} vs ${avgDolphins})`);
-  } else {
-    console.log('No winners at all');
-  }
-}
+// function checkWinner(avgDolphins, avgKoalas) {
+//   if (avgDolphins >= avgKoalas * 2) {
+//     console.log(`Dolphins win (${avgDolphins} vs ${avgKoalas})`);
+//   } else if (avgKoalas >= avgDolphins * 2) {
+//     console.log(`Koalas win (${avgKoalas} vs ${avgDolphins})`);
+//   } else {
+//     console.log('No winners at all');
+//   }
+// }
 
-const match1 = checkWinner(avgDolphins1, avgKoalas1);
-const match2 = checkWinner(avgDolphins2, avgKoalas2);
+// const match1 = checkWinner(avgDolphins1, avgKoalas1);
+// const match2 = checkWinner(avgDolphins2, avgKoalas2);
+
+//tip calculator
+//15% if bill value is between 50 and 300. If bill value is different, the tip is 20%.
+//Test data: Test for bill values: 275 / 40 / 430
+
+const tipCalculator = bill => (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
+
+const bills = [125, 555, 44];
+const tips = [tipCalculator(bills[0]), tipCalculator(bills[1]), tipCalculator(bills[2])];
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+console.log(total);
+
+
+
+// console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and the total value ${total.toFixed(2)}.`);
