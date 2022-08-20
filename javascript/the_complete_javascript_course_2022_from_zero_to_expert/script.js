@@ -132,7 +132,7 @@ console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and
 //15% if bill value is between 50 and 300. If bill value is different, the tip is 20%.
 //Test data: Test for bill values: 275 / 40 / 430
 
-const tipCalculator = bill => (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
+/* const tipCalculator = bill => (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.20;
 
 const bills = [125, 555, 44];
 console.log('bills', bills);
@@ -140,7 +140,33 @@ const tips = [tipCalculator(bills[0]), tipCalculator(bills[1]), tipCalculator(bi
 console.log('tips', tips);
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log('total', total);
-
+ */
 
 
 // console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and the total value ${total.toFixed(2)}.`);
+
+//Challenge #3
+
+const mark = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+  BMI: 0,
+  calcBMI() {
+    this.BMI = (this.mass) / (this.height ** 2);
+    return this.BMI.toFixed(1);
+  }
+}
+
+const john = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  BMI: 0,
+  calcBMI() {
+    this.BMI = (this.mass) / (this.height ** 2);
+    return this.BMI.toFixed(1);
+  }
+}
+
+const result = john.calcBMI() > mark.calcBMI() ? console.log(`${john.fullName}'s BMI(${john.BMI.toFixed(1)}) is higher than ${mark.fullName}'s BMI(${mark.BMI.toFixed(1)})!`) : console.log(`${mark.fullName}'s BMI(${mark.BMI.toFixed(1)}) is higher than ${john.fullName}'s BMI(${john.BMI.toFixed(1)})!`);
