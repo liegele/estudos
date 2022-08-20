@@ -201,6 +201,8 @@ console.log('tips:', calcAverage(tips));
 console.log('total:', calcAverage(total));
 console.log('testing:', calcAverage([1, 2, 3, 4, 5]));
 
+//Using live-server on Node JS.
+
 
 
 
