@@ -151,7 +151,6 @@ const mark = {
   fullName: 'Mark Miller',
   mass: 78,
   height: 1.69,
-  BMI: 0,
   calcBMI() {
     this.BMI = (this.mass) / (this.height ** 2);
     return this.BMI.toFixed(1);
@@ -162,7 +161,6 @@ const john = {
   fullName: 'John Smith',
   mass: 92,
   height: 1.95,
-  BMI: 0,
   calcBMI() {
     this.BMI = (this.mass) / (this.height ** 2);
     return this.BMI.toFixed(1);
