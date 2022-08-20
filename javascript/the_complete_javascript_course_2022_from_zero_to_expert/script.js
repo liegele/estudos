@@ -177,7 +177,7 @@ const tips = [];
 const total = [];
 
 for (let i = 0; i < bills.length; i++) {
-  let tipCalculator = (i) => (bills[i] >= 50 && bills[i] <= 300) ? bills[i] * 0.15 : bills[i] * 0.20;
+  const tipCalculator = (i) => (bills[i] >= 50 && bills[i] <= 300) ? bills[i] * 0.15 : bills[i] * 0.20;
   tips.push(tipCalculator(i));
   total.push(bills[i] + tips[i]);
 }
@@ -199,6 +199,7 @@ function calcAverage(arr) {
 console.log('bills:', calcAverage(bills));
 console.log('tips:', calcAverage(tips));
 console.log('total:', calcAverage(total));
+console.log('testing:', calcAverage([1, 2, 3, 4, 5]));
 
 
 
