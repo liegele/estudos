@@ -145,9 +145,9 @@ console.log('total', total);
 
 // console.log(`The bill was ${bill.toFixed(2)}, the tip was ${tip.toFixed(2)}, and the total value ${total.toFixed(2)}.`);
 
-//Challenge #3
+//Coding Challenge #3
 
-const mark = {
+/* const mark = {
   fullName: 'Mark Miller',
   mass: 78,
   height: 1.69,
@@ -167,4 +167,41 @@ const john = {
   }
 }
 
-const result = john.calcBMI() > mark.calcBMI() ? console.log(`${john.fullName}'s BMI(${john.BMI.toFixed(1)}) is higher than ${mark.fullName}'s BMI(${mark.BMI.toFixed(1)})!`) : console.log(`${mark.fullName}'s BMI(${mark.BMI.toFixed(1)}) is higher than ${john.fullName}'s BMI(${john.BMI.toFixed(1)})!`);
+const result = john.calcBMI() > mark.calcBMI() ? console.log(`${john.fullName}'s BMI(${john.BMI.toFixed(1)}) is higher than ${mark.fullName}'s BMI(${mark.BMI.toFixed(1)})!`) : console.log(`${mark.fullName}'s BMI(${mark.BMI.toFixed(1)}) is higher than ${john.fullName}'s BMI(${john.BMI.toFixed(1)})!`); */
+
+
+//Coding Challenge #4 - Loops
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const total = [];
+
+for (let i = 0; i < bills.length; i++) {
+  let tipCalculator = (i) => (bills[i] >= 50 && bills[i] <= 300) ? bills[i] * 0.15 : bills[i] * 0.20;
+  tips.push(tipCalculator(i));
+  total.push(bills[i] + tips[i]);
+}
+
+console.log(bills, tips, total);
+
+function calcAverage(arr) {
+  let average = 0;
+  // console.log('length', arr.length)
+
+  for (let i = 0; i < arr.length; i++) {
+    average += arr[i];
+    // console.log(`index ${i}:`, arr[i], arr[i - 1], (arr[i] + arr[i - 1]));
+  }
+  // console.log(average);
+  return average / arr.length;
+}
+
+console.log('bills:', calcAverage(bills));
+console.log('tips:', calcAverage(tips));
+console.log('total:', calcAverage(total));
+
+
+
+
+
+
