@@ -170,7 +170,7 @@ const john = {
 const result = john.calcBMI() > mark.calcBMI() ? console.log(`${john.fullName}'s BMI(${john.BMI.toFixed(1)}) is higher than ${mark.fullName}'s BMI(${mark.BMI.toFixed(1)})!`) : console.log(`${mark.fullName}'s BMI(${mark.BMI.toFixed(1)}) is higher than ${john.fullName}'s BMI(${john.BMI.toFixed(1)})!`); */
 
 
-//Coding Challenge #4 - Loops
+/* //Coding Challenge #4 - Loops
 
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
@@ -199,7 +199,7 @@ function calcAverage(arr) {
 console.log('bills:', calcAverage(bills));
 console.log('tips:', calcAverage(tips));
 console.log('total:', calcAverage(total));
-console.log('testing:', calcAverage([1, 2, 3, 4, 5]));
+console.log('testing:', calcAverage([1, 2, 3, 4, 5])); */
 
 //Using live-server on Node JS.
 
