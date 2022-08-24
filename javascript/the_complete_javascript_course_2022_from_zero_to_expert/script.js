@@ -204,7 +204,17 @@ console.log('testing:', calcAverage([1, 2, 3, 4, 5])); */
 //Using live-server on Node JS.
 
 
+//Developer Skils & Editor Setup
 
+//Coding Challenge #1
 
+function printForecast(arr){
+  let result = '';
+  for (let i = 0; i < arr.length; i++) {
+    result += `... ${arr[i]}ºC in ${i + 1} days `;
+  }
+  return result;
+}
 
+console.log(printForecast([17, 21, 23]));
 
