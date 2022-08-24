@@ -209,9 +209,9 @@ console.log('testing:', calcAverage([1, 2, 3, 4, 5])); */
 //Coding Challenge #1
 
 function printForecast(arr){
-  let result = '';
+  let result = '...';
   for (let i = 0; i < arr.length; i++) {
-    result += `... ${arr[i]}ºC in ${i + 1} days `;
+    result += ` ${arr[i]}ºC in ${i + 1} days ...`;
   }
   return result;
 }
