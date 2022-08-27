@@ -5,7 +5,7 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 const btnShowModal = document.querySelectorAll('.show-modal');
 
-console.log(btnShowModal);
+// console.log(btnShowModal);
 
 const openModal = function () {
   modal.classList.remove('hidden');
@@ -18,12 +18,15 @@ const closeModal = function () {
 };
 
 for (let i = 0; i < btnShowModal.length; i++) {
-  console.log(btnShowModal[i].addEventListener('click', openModal));
+  btnShowModal[i].addEventListener('click', openModal);
 }
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
 
-/* window.addEventListener('keydown', function (e) {
-  console.log(e);
-}); */
+document.addEventListener('keydown', function (e) {
+  //   console.log(e.key);
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
