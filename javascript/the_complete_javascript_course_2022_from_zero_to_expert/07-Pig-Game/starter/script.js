@@ -22,7 +22,7 @@ score1El.textContent = 0;
 diceEl.classList.add('hidden');
 
 function nextPlayer(active, inactive) {
-  console.log('active:', active, 'Inactive:', inactive);
+  // console.log('active:', active, 'Inactive:', inactive);
   document.querySelector(`#current--${active}`).textContent = 0;
   currentScore = 0;
   /* document
@@ -73,12 +73,22 @@ btnHold.addEventListener('click', function () {
     scores[activePlayer];
 
   //2. Check if player's score is >= 100
-  if (scores[activePlayer] >= 100) {
+  if (scores[activePlayer] >= 20) {
+    //Finish te game
     document
       .querySelector(`.player--${activePlayer}`)
       .classList.toggle('player--winner');
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--active');
+    btnRoll.classList.toggle('hidden');
+    btnHold.classList.toggle('hidden');
   }
-  //Finish te game
-  //Switch to the next player
+
+  //3. Switch to the next player
   activePlayer === 0 ? nextPlayer(0, 1) : nextPlayer(1, 0);
+});
+
+btnNew.addEventListener('click', function () {
+  //1. Redefine all values to start condition.
 });
