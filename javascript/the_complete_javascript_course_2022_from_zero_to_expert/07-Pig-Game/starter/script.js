@@ -74,7 +74,7 @@ btnHold.addEventListener('click', function () {
 
   //2. Check if player's score is >= 100
   if (scores[activePlayer] >= 20) {
-    //Finish te game
+    //Finish te game and disable buttons
     document
       .querySelector(`.player--${activePlayer}`)
       .classList.toggle('player--winner');
