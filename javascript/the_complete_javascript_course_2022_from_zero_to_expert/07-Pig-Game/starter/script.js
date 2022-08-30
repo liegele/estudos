@@ -12,7 +12,7 @@ const score1El = document.querySelector('#score--1');
 const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
-const btnHold = document.querySelector('btn-hold');
+const btnHold = document.querySelector('.btn-hold');
 const current0El = document.getElementById('current--0');
 const current1El = document.getElementById('current--1');
 
@@ -26,12 +26,20 @@ function nextPlayer(active, inactive) {
   document.querySelector(`#current--${active}`).textContent = 0;
   scores[Number(active)] = 0;
   currentScore = 0;
-  document
+  /* document
     .querySelector(`.player--${active}`)
     .classList.remove('player--active');
   document
     .querySelector(`.player--${inactive}`)
-    .classList.add(`player--active`);
+    .classList.add(`player--active`); */
+
+  //Work just like code above, but using toggle method, which add a class if not exist and remove it if exist.
+  document
+    .querySelector(`.player--${active}`)
+    .classList.toggle('player--active');
+  document
+    .querySelector(`.player--${inactive}`)
+    .classList.toggle('player--active');
   activePlayer = Number(inactive);
 }
 
