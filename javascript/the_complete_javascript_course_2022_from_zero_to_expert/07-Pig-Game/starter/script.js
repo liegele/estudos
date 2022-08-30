@@ -2,7 +2,7 @@
 
 // const score1 = document.getElementById('score--1'); //A little faster than querySelector
 
-const scores = [0, 0];
+let scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 
@@ -83,6 +83,7 @@ btnHold.addEventListener('click', function () {
       .classList.remove('player--active');
     btnRoll.classList.toggle('hidden');
     btnHold.classList.toggle('hidden');
+    diceEl.classList.toggle('hidden');
   }
 
   //3. Switch to the next player
@@ -91,4 +92,16 @@ btnHold.addEventListener('click', function () {
 
 btnNew.addEventListener('click', function () {
   //1. Redefine all values to start condition.
+  activePlayer = 0;
+  scores = [0, 0];
+  currentScore = 0;
+  document.querySelector(`.player--0`).classList.remove('player--winner');
+  document.querySelector(`.player--1`).classList.remove('player--winner');
+  document.querySelector(`.player--1`).classList.remove('player--active');
+  document.querySelector(`#current--0`).textContent = 0;
+  document.querySelector(`#current--1`).textContent = 0;
+  document.querySelector(`#score--0`).textContent = 0;
+  document.querySelector(`#score--1`).textContent = 0;
+  btnRoll.classList.toggle('hidden');
+  btnHold.classList.toggle('hidden');
 });
