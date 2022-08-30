@@ -98,10 +98,10 @@ btnNew.addEventListener('click', function () {
   document.querySelector(`.player--0`).classList.remove('player--winner');
   document.querySelector(`.player--1`).classList.remove('player--winner');
   document.querySelector(`.player--1`).classList.remove('player--active');
-  document.querySelector(`#current--0`).textContent = 0;
-  document.querySelector(`#current--1`).textContent = 0;
-  document.querySelector(`#score--0`).textContent = 0;
-  document.querySelector(`#score--1`).textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+  score0El.textContent = 0;
+  score1El.textContent = 0;
   btnRoll.classList.toggle('hidden');
   btnHold.classList.toggle('hidden');
 });
