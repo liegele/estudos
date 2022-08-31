@@ -97,6 +97,7 @@ btnNew.addEventListener('click', function () {
   currentScore = 0;
   document.querySelector(`.player--0`).classList.remove('player--winner');
   document.querySelector(`.player--1`).classList.remove('player--winner');
+  document.querySelector(`.player--0`).classList.add('player--active');
   document.querySelector(`.player--1`).classList.remove('player--active');
   current0El.textContent = 0;
   current1El.textContent = 0;
