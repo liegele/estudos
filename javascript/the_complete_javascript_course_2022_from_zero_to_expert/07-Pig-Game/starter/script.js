@@ -105,3 +105,5 @@ btnNew.addEventListener('click', function () {
   btnRoll.classList.toggle('hidden');
   btnHold.classList.toggle('hidden');
 });
+
+//End of game! :)
