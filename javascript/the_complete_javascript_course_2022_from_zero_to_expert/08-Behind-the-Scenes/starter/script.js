@@ -34,3 +34,6 @@ const matilda = {
 
 matilda.calcAge = jonas.calcAge;
 matilda.calcAge();
+
+const f = jonas.calcAge;
+f();
