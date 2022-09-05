@@ -83,5 +83,3 @@ jessicaCopy.family.push('John');
 console.log('-------');
 console.log('Before marriage: ', jessica2);
 console.log('After marriage: ', jessicaCopy);
-
-jessicaCopy2 = new jessica2();
