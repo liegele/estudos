@@ -30,10 +30,58 @@ const restaurant = {
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivery to ${address} at ${time}`
+    );
+  },
 };
 
-//Destructuring Arrays
+//DESTRUCTURING OBJECTS
 
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//Default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+//Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj);
+console.log(a, b);
+
+//Destructuring Nested Objects
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via de Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  address: 'Via de Sole, 21',
+  starterIndex: 1,
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+/* //DESTRUCTURING ARRAYS
 const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[1];
@@ -78,6 +126,6 @@ const nested = [2, 4, [5, 6]];
 const [i, , [j, k]] = nested;
 console.log(i, j, k);
 
-//Setting default values
+//Setting default values to desctructuring variables
 const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+console.log(p, q, r); */
