@@ -42,53 +42,92 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
     );
   },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
-//SPREAD OPERATOR
+// //SPREAD OPERATOR
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
-console.log(...newArr);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+// console.log(...newArr);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
-//Copy array
-const mainMenuCopy = [...restaurant.mainMenu];
-//Join 2 or more arrays togheter
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
+// //Copy array
+// const mainMenuCopy = [...restaurant.mainMenu];
+// //Join 2 or more arrays togheter
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
 
-//Iterables (Arrays, String, Maps, Sets. Not objects) working with Spread operator
-const str = 'liegele.dev';
-console.log(...str);
+// //Iterables (Arrays, String, Maps, Sets. Not objects) working with Spread operator
+// const str = 'liegele.dev';
+// console.log(...str);
 
-// //Real world example
-// const ingredients = [
-//   prompt("Let's make some pasta! Ingrediente 1?"),
-//   prompt('Ingredient 2?'),
-//   prompt('Ingredient 3?'),
+// // //Real world example
+// // const ingredients = [
+// //   prompt("Let's make some pasta! Ingrediente 1?"),
+// //   prompt('Ingredient 2?'),
+// //   prompt('Ingredient 3?'),
+// // ];
+// // console.log(ingredients);
+
+// // restaurant.orderPasta(...ingredients);
+
+// //Objects
+// const newRestaurant = {
+//   foundedIn: 1998,
+//   ...restaurant,
+//   founder: 'Giuseppe Maximiliam',
+// };
+// console.log(newRestaurant);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
+
+// const arr = [1, 2, ...[3, 4]];
+// console.log(arr);
+
+// //Rest pattern (Pack elements into array)
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+// // const [a, ...others] = [1, 2, 3, 4, 5];
+// // console.log(a, others);
+
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
 // ];
-// console.log(ingredients);
+// console.log(pizza, risotto, otherFood);
 
-// restaurant.orderPasta(...ingredients);
+// //Objects
+// const { sat, ...weekDays } = restaurant.openingHours;
+// console.log(sat, weekDays);
 
-//Objects
-const newRestaurant = {
-  foundedIn: 1998,
-  ...restaurant,
-  founder: 'Giuseppe Maximiliam',
-};
-console.log(newRestaurant);
+// //Rest arguments
+// const add = function (...numbers) {
+//   console.log(numbers);
+// };
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorante Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+// restaurant.orderPizza('mushrooms');
 
 // //DESTRUCTURING OBJECTS
 
@@ -181,3 +220,5 @@ console.log(i, j, k);
 //Setting default values to desctructuring variables
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r); */
+
+//SHORT CIRCUITING
