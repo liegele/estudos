@@ -221,7 +221,7 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r); */
 
-//SHORT CIRCUITING
+/* //SHORT CIRCUITING
 
 console.log('------ OR -----');
 
@@ -231,3 +231,13 @@ console.log(true || 0);
 console.log(undefined || null);
 
 console.log('------ AND -----');
+
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas' && true && false);
+
+//THE MULLISH COALESCING OPERATOR (??) -- Work with nullish values
+//Nullish: null and undefined (NOT 0 or '');
+console.log('------ nullish coalescing operator -----');
+let a = 0;
+console.log(a || 'Jonas');
+console.log(a ?? 'Jonas'); */
