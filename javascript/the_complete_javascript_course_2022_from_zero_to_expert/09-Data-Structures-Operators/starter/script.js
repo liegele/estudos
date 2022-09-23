@@ -241,3 +241,28 @@ console.log('------ nullish coalescing operator -----');
 let a = 0;
 console.log(a || 'Jonas');
 console.log(a ?? 'Jonas'); */
+
+//LOGICAL ASSIGNMENT OPERATORS
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovani Rossi',
+};
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+//Nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+console.log(rest1);
+console.log(rest2);
