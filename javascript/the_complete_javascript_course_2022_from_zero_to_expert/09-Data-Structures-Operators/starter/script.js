@@ -325,7 +325,7 @@ const game = {
   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
   date: 'Nov 9th, 2037',
   odds: {
-    team1: 1.33,
+    team1: 10.33,
     x: 3.25,
     team2: 6.5,
   },
@@ -381,4 +381,5 @@ printGoals(...game.scored);
 
 //TASK #7
 
-const winner = 
+team2 < team1 || console.log(`${game.team1} is more likely to win!`);
+team1 < team2 || console.log(`${game.team2} is more likely to win!`);
