@@ -420,8 +420,8 @@ for (const player of gameScored) {
 
 //TASK #2
 
-let average,
-  totalSum = 0;
+let average;
+let totalSum = 0;
 
 for (const value of Object.values(game.odds)) {
   totalSum += value;
@@ -431,3 +431,29 @@ average = totalSum / 3;
 console.log(`Odd average: ${average.toFixed(2)}`);
 
 //TASK #3
+
+// for (const [key, value] of Object.entries(game.odds)) {
+//   console.log(`Odd for victory ${key}: ${value}`);
+// }
+
+console.log(`Odd for victory ${game.team1}: ${game.odds.team1}`);
+console.log(`Odd for draw: ${game.odds.x}`);
+console.log(`Odd for victory ${game.team2}: ${game.odds.team2}`);
+
+//BONUS
+
+const scores = {};
+
+for (const player of game.scored) {
+  scores[player] ? scores[player]++ : (scores[player] = 1);
+  console.log(player, scores[player]);
+}
+
+console.log(scores);
+
+// const myObj = {};
+// for (let index = 0; index < 100; index++) {
+//   myObj[`Index${index}`] = index;
+// }
+
+// console.log(myObj);
