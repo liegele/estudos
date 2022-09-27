@@ -351,6 +351,34 @@ console.log(allPlayers);
 
 //TASK #4
 
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
 //TASK #5
 
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+
 //TASK #6
+
+const printGoals = function (...playerNames) {
+  const numberOfGoals = playerNames.length;
+  console.log(numberOfGoals);
+  for (const pn of playerNames) {
+    console.log(pn);
+  }
+};
+
+printGoals(
+  'Davies',
+  'Muller',
+  'Lewandowski',
+  'Kimmich',
+  'Liégele',
+  'Ronaldinho Gaúcho'
+);
+printGoals(...game.scored);
+
+//TASK #7
+
+const winner = 
