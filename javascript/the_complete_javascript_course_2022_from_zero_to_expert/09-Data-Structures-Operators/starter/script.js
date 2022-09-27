@@ -330,3 +330,27 @@ const game = {
     team2: 6.5,
   },
 };
+
+//TASK #1
+
+const players1 = game.players[0];
+const players2 = game.players[1];
+console.log(players1, players2);
+
+//TASK #2
+
+const [gk1, ...fieldPlayers1] = players1;
+console.log(gk1, fieldPlayers1);
+const [gk2, ...fieldPlayers2] = players2;
+console.log(gk2, fieldPlayers2);
+
+//TASK #3
+
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+//TASK #4
+
+//TASK #5
+
+//TASK #6
