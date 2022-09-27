@@ -330,6 +330,3 @@ const game = {
     team2: 6.5,
   },
 };
-
-console.log(game.players[0][3]);
-console.log(game.players[1][3]);
