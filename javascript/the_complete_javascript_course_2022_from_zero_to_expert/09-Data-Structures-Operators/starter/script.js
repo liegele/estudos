@@ -573,7 +573,6 @@ btn.addEventListener('click', () => {
 });
 
 function convertVariables(text) {
-  // console.log(`Before treatment: ${text}`);
   const splitVariables = text.split('\n');
   console.log(splitVariables.length);
   for (let index = 0; index < splitVariables.length; index++) {
