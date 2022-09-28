@@ -568,14 +568,24 @@ document.body.append(document.createElement('button'));
 const btn = document.querySelector('button');
 btn.addEventListener('click', () => {
   const text = document.querySelector('textarea').value;
-  console.log(text);
+  // console.log(text);
   convertVariables(text);
 });
 
 function convertVariables(text) {
   // console.log(`Before treatment: ${text}`);
   const splitVariables = text.split('\n');
-  // console.log(splitVariables);
-  for (const [index, variable] of splitVariables) {
+  console.log(splitVariables.length);
+  for (let index = 0; index < splitVariables.length; index++) {
+    splitVariables[index] = splitVariables[index].trim();
+    if (splitVariables.length > 0) {
+      let findUnderscoreIndex = splitVariables[index].indexOf('_');
+      splitVariables[index] = splitVariables[index].toLowerCase();
+      splitVariables[index] = splitVariables[index].replace(
+        `_${splitVariables[index].charAt(findUnderscoreIndex + 1)}`,
+        `${splitVariables[index].charAt(findUnderscoreIndex + 1).toUpperCase()}`
+      );
+    }
+    console.log(splitVariables[index].padEnd(20, ' ') + '✅'.repeat(index + 1));
   }
 }
