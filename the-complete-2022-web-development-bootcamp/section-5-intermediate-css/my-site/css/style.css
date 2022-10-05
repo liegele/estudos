@@ -1,7 +1,18 @@
-body {
-  background-color: rgb(43, 144, 226);
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-h1 {
-  color: whitesmoke;
+.top-container {
+  background-color: #e4f9f5;
+}
+.middle-container {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+.bottom-container {
+  background-color: blue;
+  width: 200px;
+  height: 200px;
 }
