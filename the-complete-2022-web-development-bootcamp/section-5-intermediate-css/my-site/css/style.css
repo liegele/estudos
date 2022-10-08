@@ -41,6 +41,7 @@ h3 {
 
 a {
   color: #11999e;
+  font-family: "Montserrat", sans-serif;
 }
 
 p {
@@ -98,6 +99,7 @@ hr {
 .bottom-container p {
   font-size: 0.8rem;
   color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .footer-link {
