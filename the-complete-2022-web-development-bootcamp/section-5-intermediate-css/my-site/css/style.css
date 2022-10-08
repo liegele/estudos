@@ -19,38 +19,73 @@ h1 {
   /* margin: 0 auto; */
   color: #66bfbf;
   font-family: "Sacramento", cursive;
-  font-size: 5.625rem; /* 16px = 100% = 1em */
+  font-size: 7.5rem; /* 16px = 100% = 1em */
   margin: 50px auto 0 auto;
   line-height: 2;
 }
 
 h2 {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5rem;
-  font-weight: normal;
+  font-size: 2rem;
+  font-weight: bold;
   color: #66bfbf;
+  margin: 20px 20px 50px 20px;
 }
 
 h3 {
   font-family: "Montserrat", sans-serif;
+  font-weight: bold;
   color: #11999e;
+  margin: 20px 0px;
 }
 
 a {
   color: #11999e;
 }
 
+p {
+  color: #40514e;
+  font-weight: bold;
+}
+
+hr {
+  width: 5%;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  border-style: dotted;
+  border-top-width: 15px;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-color: #d2e0e0;
+}
+
+/* .profile {
+  margin: 100px, 0;
+} */
+
+.contact-me p,
+.profile p {
+  width: 35%;
+  margin: auto;
+}
+
 .top-container {
   background-color: #e4f9f5;
   padding-top: 100px;
+  margin-bottom: 100px;
   position: relative;
   width: auto;
 }
 
 .middle-container {
+  background-color: white;
 }
 
 .bottom-container {
+  background-color: #11999e;
 }
 
 .top-cloud {
@@ -71,21 +106,21 @@ a {
 }
 
 .skill-row {
-  margin: 100px auto 100px auto;
+  margin: 100px auto 150px auto;
   text-align: left;
   width: 50%;
   line-height: 2;
 }
 
 .computer-img {
-  width: 25%;
+  width: 150px;
   border-radius: 100%;
   float: left;
   margin-right: 30px;
 }
 
 .chillie-img {
-  width: 25%;
+  width: 150px;
   border-radius: 100%;
   float: right;
   margin-left: 30px;
