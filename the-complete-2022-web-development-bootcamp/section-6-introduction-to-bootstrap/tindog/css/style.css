@@ -124,5 +124,21 @@ h1 {
 
 .card {
   width: 20rem;
+  border-radius: 3%;
   margin: 15px auto;
+}
+
+.card-body {
+  min-height: 310px;
+}
+
+.card h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  color: #ff4c68;
+  line-height: 1.5;
+}
+
+.card p {
+  font-family: "Montserrat-light", sans-serif;
 }
