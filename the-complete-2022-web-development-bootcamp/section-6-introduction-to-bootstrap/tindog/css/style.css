@@ -50,9 +50,7 @@ h1 {
 /* Title Image */
 
 .title-image {
-  width: 25%;
-  /* top: 30%;
-  right: 25%; */
+  width: 20%;
   transform: rotate(25deg);
   position: absolute;
   /* z-index: -1; */
@@ -140,7 +138,7 @@ h1 {
 }
 
 .card-body {
-  min-height: 310px;
+  min-height: 340px;
 }
 
 .card h2 {
@@ -153,4 +151,12 @@ h1 {
 .card p,
 #pricing p {
   font-family: "Montserrat-light", sans-serif;
+}
+
+.signup-button {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: auto;
+  height: 90px;
 }
