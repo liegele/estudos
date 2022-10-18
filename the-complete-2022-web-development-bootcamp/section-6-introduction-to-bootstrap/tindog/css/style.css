@@ -114,3 +114,15 @@ h1 {
   width: 10%;
   margin: 0 55px;
 }
+
+/* Pricing */
+
+#pricing {
+  margin: 60px auto;
+  text-align: center;
+}
+
+.card {
+  width: 20rem;
+  margin: 15px auto;
+}
