@@ -1,11 +1,17 @@
+/* Fonts used */
+
 * {
   font-family: "Epilogue", sans-serif;
   font-size: 0.85rem;
 }
 
+/* Main Logo */
+
 .logo {
   font-size: 1.3rem;
 }
+
+/* Navigation Bar */
 
 nav,
 .cta-btns,
@@ -39,4 +45,52 @@ li {
   border: 1px solid gray;
   padding: 0.2rem 0.7rem;
   border-radius: 0.3rem;
+}
+
+/* Client Logos */
+
+.clients-logos img {
+  width: 5rem;
+  margin-right: 1rem;
+}
+
+.clients-logos {
+  margin-top: 4rem;
+}
+
+.clients-logos img:nth-last-child(2) {
+  width: 3rem;
+}
+
+/* Main */
+
+main h1 {
+  font-size: 3rem;
+}
+
+main p {
+  font-size: 0.7rem;
+  width: 18rem;
+  color: hsl(0, 0%, 41%);
+  line-height: 0.9rem;
+}
+
+main button {
+  background-color: hsl(0, 0%, 8%);
+  color: #fff;
+  border: none;
+  font-size: 0.7rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.4rem;
+  margin-top: 1rem;
+}
+
+#text-side {
+  margin-top: 3rem;
+}
+
+/* Hero Image */
+
+.img-side img {
+  width: 20rem;
 }
