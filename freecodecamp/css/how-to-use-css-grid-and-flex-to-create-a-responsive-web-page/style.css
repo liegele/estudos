@@ -2,7 +2,8 @@
 
 * {
   font-family: "Epilogue", sans-serif;
-  font-size: 1.5rem;
+  /* font-family: 'Poppins', sans-serif; */
+  font-size: 1.3rem;
 }
 
 /* Main Logo */
@@ -81,7 +82,7 @@ main p {
   font-size: 0.7rem;
   width: 18rem;
   color: hsl(0, 0%, 41%);
-  line-height: 0.9rem;
+  line-height: 1.5rem;
 }
 
 main button {
