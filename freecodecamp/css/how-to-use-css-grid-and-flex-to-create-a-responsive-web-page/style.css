@@ -2,7 +2,7 @@
 
 * {
   font-family: "Epilogue", sans-serif;
-  font-size: 0.85rem;
+  font-size: 1.5rem;
 }
 
 /* Main Logo */
@@ -50,19 +50,28 @@ li {
 /* Client Logos */
 
 .clients-logos img {
-  width: 5rem;
-  margin-right: 1rem;
+  width: 6rem;
+  /* margin-right: 1rem; */
 }
 
 .clients-logos {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
-.clients-logos img:nth-last-child(2) {
+/* .clients-logos img:nth-last-child(2) {
   width: 3rem;
-}
+} */
 
 /* Main */
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 70vh;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8rem;
+}
 
 main h1 {
   font-size: 3rem;
