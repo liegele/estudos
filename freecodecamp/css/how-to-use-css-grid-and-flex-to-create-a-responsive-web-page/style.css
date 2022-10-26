@@ -101,6 +101,105 @@ main button {
 
 /* Hero Image */
 
+.img-side {
+  margin: auto;
+}
+
 .img-side img {
+  /* justify-content: center; */
   width: 20rem;
+  margin-right: 4rem;
+}
+
+.desktop-img {
+  /* display: block; */
+  display: inline-block;
+}
+
+.mobile-img {
+  display: none;
+}
+
+/* Responsive */
+
+@media (min-width: 300px) and (max-width: 480px) {
+  */ * {
+    font-size: 2rem;
+  }
+
+  body {
+    height: 100vh;
+    width: 100vw;
+    /* overflow-y: hidden; */
+    overflow-x: hidden;
+    text-align: center;
+    justify-content: center;
+  }
+
+  nav {
+    margin: 0 1.5rem 1.5rem;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+    margin-right: 2rem;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 0 auto;
+  }
+
+  /* Client logos */
+
+  .client-logos {
+    margin-top: 2rem;
+  }
+
+  .desktop-logos {
+    display: none;
+  }
+
+  .mobile-logos {
+    display: block;
+    margin-top: 3rem;
+  }
+
+  /* Images */
+
+  .desktop-img {
+    display: none;
+  }
+
+  .mobile-img {
+    display: block;
+    margin-top: 3rem;
+  }
+
+  .cta-btns,
+  menu-items {
+    display: none;
+  }
+
+  main h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Cliente logos */
+
+  .client-logos img {
+    width: 4.5rem;
+    margin-right: 0.8rem;
+  }
+
+  .attribution {
+    width: 13rem;
+    margin: 8rem auto 0 auto;
+    text-align: center;
+  }
 }
