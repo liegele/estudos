@@ -16,24 +16,32 @@ footer {
 }
 
 .q-drum {
+  background-image: url("images/tom1.png");
+  /* background-color: transparent; */
 }
 
 .w-drum {
+  background-image: url("images/tom2.png");
 }
 
 .e-drum {
+  background-image: url("images/tom3.png");
 }
 
 .r-drum {
+  background-image: url("images/kick.png");
 }
 
 .i-drum {
+  background-image: url("images/tom4.png");
 }
 
 .o-drum {
+  background-image: url("images/snare.png");
 }
 
 .p-drum {
+  background-image: url("images/crash.png");
 }
 
 .set {
