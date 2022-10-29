@@ -58,3 +58,15 @@ document.body.addEventListener("keypress", (e) => {
       break;
   }
 });
+
+/* //Creating a Function Constructor (Factory)
+function HouseKeeper(yearsOfExperience, name, cleaningRepertoire) {
+  this.yearsOfExperience = yearsOfExperience;
+  this.name = name;
+  this.cleaningRepertoire = cleaningRepertoire;
+}
+
+//Creating an object houseKeeper1 form function constructor
+var houseKeeper1 = new HouseKeeper(12, 'Angela', ['Bathroon', 'Bedrooms', 'Lobby']);
+
+console.log(houseKeeper1.name); */
