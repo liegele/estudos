@@ -71,7 +71,7 @@ function HouseKeeper(yearsOfExperience, name, cleaningRepertoire) {
 function btnAnimation(currentKey) {
   const activeButton = document.querySelector(`.${currentKey}-drum`);
   activeButton.classList.add("pressed");
-  setTimeout(() => activeButton.classList.remove("pressed"), 100);
+  setTimeout(() => activeButton.classList.remove("pressed"), 150);
 }
 
 // OFF-TOPIC
