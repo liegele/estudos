@@ -26,7 +26,3 @@ function playSound() {
 
 $(`#${randomChosenColour}`).on("click", playSound);
 playSound();
-
-/* for (let i = 0; i < 50; i++) {
-}
- */
