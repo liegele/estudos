@@ -17,6 +17,16 @@ console.log(gamePattern);
 //Adding fadeOut and fadeIn effect on chosen colour.
 $(`#${randomChosenColour}`).delay().fadeOut().fadeIn();
 
+//Playing a sound for chosen colour
+function playSound() {
+  let audio = new Audio(`sounds/${randomChosenColour}.mp3`);
+  audio.play();
+  console.log(`sounds/${randomChosenColour}.mp3`);
+}
+
+$(`#${randomChosenColour}`).on("click", playSound);
+playSound();
+
 /* for (let i = 0; i < 50; i++) {
 }
  */
