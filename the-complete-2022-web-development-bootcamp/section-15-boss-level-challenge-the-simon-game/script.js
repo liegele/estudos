@@ -26,3 +26,5 @@ function playSound() {
 
 $(`#${randomChosenColour}`).on("click", playSound);
 playSound();
+
+//I put his comment here to back in time my commit.
