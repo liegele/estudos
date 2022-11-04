@@ -18,11 +18,24 @@ console.log(gamePattern);
 $(`#${randomChosenColour}`).delay().fadeOut().fadeIn();
 
 //Playing a sound for chosen colour.
-function playSound() {
-  let audio = new Audio(`sounds/${randomChosenColour}.mp3`);
+function playSound(whichColour) {
+  let audio = new Audio(`sounds/${whichColour}.mp3`);
   audio.play();
-  console.log(`sounds/${randomChosenColour}.mp3`);
+  console.log(randomChosenColour);
+  console.log(gamePattern);
+  console.log(`sounds/${whichColour}.mp3`);
 }
 
-$(`#${randomChosenColour}`).on("click", playSound);
-playSound();
+//Detecting when a button is clicked, but with event delegation (DIV <- DIV <- BUTTON).
+function clickHandler() {
+  $(".container").on("click", (e) => {
+    console.log(`I'm got clicked. But I feel that just like bubbles! :)`);
+    if (e.target.tagName === "BUTTON") {
+      console.log(e.target.id);
+      let userChosenColour = e.target.id;
+      $(`#${userChosenColour}`).on("click", playSound(userChosenColour));
+    }
+  });
+}
+
+clickHandler();
