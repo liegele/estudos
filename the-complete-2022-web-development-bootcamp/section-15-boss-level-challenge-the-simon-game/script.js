@@ -1,18 +1,26 @@
 let gamePattern = [];
+let userClickedPattern = [];
 let buttonColours = ["red", "blue", "green", "yellow"];
 
-//Function to generate a random number.
+let randomNumber, randomChosenColour;
+
+//Function to keep the sequence of sounds.
 function nextSequence() {
-  return Math.floor(Math.random() * 4);
+  //Generating a random number between [0 and 3].
+  randomNumber = Math.floor(Math.random() * 4);
+
+  //Defining the chosen colour.
+  randomChosenColour = buttonColours[randomNumber];
+  console.log(randomChosenColour);
+
+  //Put chosen colour in gamePattern array.
+  gamePattern.push(randomChosenColour);
+  console.log(gamePattern);
+
+  playSound(randomChosenColour);
 }
 
-//Defining the chosen colour.
-let randomChosenColour = buttonColours[nextSequence()];
-console.log(randomChosenColour);
-
-//Put chosen colour in gamePattern array.
-gamePattern.push(randomChosenColour);
-console.log(gamePattern);
+nextSequence();
 
 //Adding fadeOut and fadeIn effect on chosen colour.
 $(`#${randomChosenColour}`).delay().fadeOut().fadeIn();
@@ -20,10 +28,12 @@ $(`#${randomChosenColour}`).delay().fadeOut().fadeIn();
 //Playing a sound for chosen colour.
 function playSound(whichColour) {
   let audio = new Audio(`sounds/${whichColour}.mp3`);
-  audio.play();
-  console.log(randomChosenColour);
-  console.log(gamePattern);
-  console.log(`sounds/${whichColour}.mp3`);
+  audio.addEventListener("canplaythrough", (e) => {
+    audio.play();
+    console.log(randomChosenColour);
+    console.log(gamePattern);
+    console.log(`sounds/${whichColour}.mp3`);
+  });
 }
 
 //Detecting when a button is clicked, but with event delegation (DIV <- DIV <- BUTTON).
@@ -33,9 +43,14 @@ function clickHandler() {
     if (e.target.tagName === "BUTTON") {
       console.log(e.target.id);
       let userChosenColour = e.target.id;
+      userClickedPattern.push(userChosenColour);
+      console.log(userClickedPattern);
       $(`#${userChosenColour}`).on("click", playSound(userChosenColour));
     }
   });
 }
+
+//Add animation to the user clicks.
+function animatePress(currentColour) {}
 
 clickHandler();
