@@ -20,34 +20,52 @@ function updateUI(message) {
   $("#level-title").text(message);
 }
 
+//function to block execution of JS.
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 //Function to keep the sequence of colours/sounds.
-function nextSequence() {
+async function nextSequence() {
   randomNumber = Math.floor(Math.random() * 4);
   randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
 
-  gamePattern.forEach((element) => {
+  /*  gamePattern.forEach((element) => {
     setTimeout(() => {
       $(`#${element}`).delay().fadeOut().fadeIn();
       playSound(element);
     }, 1000);
-  });
+  }); */
 
-  gamePattern.forEach(() => {
-    new Promise((resolve, reject) => {
+  /* gamePattern.forEach(() => {
+    new Promise((resolve) => {
       resolve(setTimeout(() => {}, 1000));
-    }).then(() => {
-      (element) => {
-        setTimeout(() => {
-          $(`#${element}`).delay().fadeOut().fadeIn();
-          playSound(element);
-        }, 1000);
-      };
+    }).then((element) => {
+      setTimeout(() => {
+        $(`#${element}`).delay(100).fadeOut().fadeIn();
+        playSound(element);
+        console.log(element);
+      }, 0);
     });
   });
+ */
+  for (const value of gamePattern) {
+    $(`#${value}`).delay().fadeOut().fadeIn();
+    playSound(value);
+    sleep(2000);
+  }
+
+  /* gamePattern.forEach(() => {
+    new Promise((resolve) => {
+      resolve(setTimeout(() => {}, 1000));
+    }).then((element) => {
+      $(`#${element}`).delay(100).fadeOut().fadeIn();
+      playSound(element);
+    });
+  }); */
 
   updateUI(`Level ${level}`);
-  console.log(gamePattern);
   level++;
 }
 
@@ -68,10 +86,12 @@ function clickHandler() {
       $(`#${userChosenColour}`).on("click", playSound(userChosenColour));
       animatePress(userChosenColour);
       // setInterval(() => updateUI("I'm thinking..."), 2000);
-      setTimeout(() => {
-        updateUI(`Level ${level}`);
-        nextSequence();
-      }, 3000);
+      // setTimeout(() => {
+      //   updateUI(`Level ${level}`);
+      //   nextSequence();
+      // }, 3000);
+      updateUI(`Level ${level}`);
+      nextSequence();
 
       console.log(gamePattern);
       console.log(userClickedPattern);
@@ -81,7 +101,6 @@ function clickHandler() {
 
 //Add animation to the user clicks.
 function animatePress(currentColour) {
-  console.log("hi");
   $(`#${currentColour}`).addClass("pressed");
   setTimeout(() => $(`#${currentColour}`).removeClass("pressed"), 100);
 }
