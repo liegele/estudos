@@ -69,6 +69,9 @@ async function nextSequence() {
   level++;
 }
 
+//Running game pattern for actual level.
+function runningGamingPattern() {}
+
 //Playing a sound for chosen colour.
 function playSound(whichColour) {
   let audio = new Audio(`sounds/${whichColour}.mp3`);
