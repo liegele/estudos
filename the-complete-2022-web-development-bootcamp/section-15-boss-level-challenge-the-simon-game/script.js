@@ -61,8 +61,8 @@ function clickHandler() {
 //Add animation to the user clicks.
 function animatePress(currentColour) {
   console.log("hi");
-  $(`#${currentColour}`).addClass(".pressed");
-  // setTimeout($(`#${currentColour}`).toggleClass(".pressed"), 100);
+  $(`#${currentColour}`).addClass("pressed");
+  setTimeout(() => $(`#${currentColour}`).toggleClass("pressed"), 100);
 }
 
 clickHandler();
