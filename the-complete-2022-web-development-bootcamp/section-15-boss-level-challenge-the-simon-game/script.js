@@ -3,6 +3,7 @@ let userClickedPattern = [];
 let buttonColours = ["red", "blue", "green", "yellow"];
 let randomNumber, randomChosenColour;
 let level = 1;
+let initialLevelClickHandler = 1;
 let gameStarted = false;
 
 //Starting game when 'A' key is pressed.
@@ -26,51 +27,28 @@ function sleep(ms) {
 }
 
 //Function to keep the sequence of colours/sounds.
-async function nextSequence() {
+function nextSequence() {
   randomNumber = Math.floor(Math.random() * 4);
   randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
-
-  /*  gamePattern.forEach((element) => {
-    setTimeout(() => {
-      $(`#${element}`).delay().fadeOut().fadeIn();
-      playSound(element);
-    }, 1000);
-  }); */
-
-  /* gamePattern.forEach(() => {
-    new Promise((resolve) => {
-      resolve(setTimeout(() => {}, 1000));
-    }).then((element) => {
-      setTimeout(() => {
-        $(`#${element}`).delay(100).fadeOut().fadeIn();
-        playSound(element);
-        console.log(element);
-      }, 0);
-    });
-  });
- */
-  for (const value of gamePattern) {
-    $(`#${value}`).delay().fadeOut().fadeIn();
-    playSound(value);
-    sleep(2000);
-  }
-
-  /* gamePattern.forEach(() => {
-    new Promise((resolve) => {
-      resolve(setTimeout(() => {}, 1000));
-    }).then((element) => {
-      $(`#${element}`).delay(100).fadeOut().fadeIn();
-      playSound(element);
-    });
-  }); */
-
+  playAndEffectButton(randomChosenColour);
   updateUI(`Level ${level}`);
-  level++;
+  // level++;
+  initialLevelClickHandler = 1;
 }
 
-//Running game pattern for actual level.
-function runningGamingPattern() {}
+//Running game pattern until actual level.
+function showGamingPattern() {
+  if (initialLevelClickHandler === level) {
+    gameStarted = false;
+    playAndEffectButton(gamePattern[level - 1]);
+    setTimeout(() => {
+      level++;
+      showGamingPattern();
+    }, 1000);
+  }
+  gameStarted = true;
+}
 
 //Playing a sound for chosen colour.
 function playSound(whichColour) {
@@ -78,6 +56,12 @@ function playSound(whichColour) {
   audio.addEventListener("canplaythrough", (e) => {
     audio.play();
   });
+}
+
+//Play sound and start button effect.
+function playAndEffectButton(button) {
+  $(`#${button}`).delay().fadeOut().fadeIn();
+  playSound(button);
 }
 
 //Detecting when a button is clicked, but with event delegation (DIV <- DIV <- BUTTON).
@@ -88,18 +72,44 @@ function clickHandler() {
       userClickedPattern.push(userChosenColour);
       $(`#${userChosenColour}`).on("click", playSound(userChosenColour));
       animatePress(userChosenColour);
-      // setInterval(() => updateUI("I'm thinking..."), 2000);
-      // setTimeout(() => {
-      //   updateUI(`Level ${level}`);
-      //   nextSequence();
-      // }, 3000);
-      updateUI(`Level ${level}`);
-      nextSequence();
+      console.log(initialLevelClickHandler, level);
 
-      console.log(gamePattern);
-      console.log(userClickedPattern);
+      console.log(compareSequence());
+      if (compareSequence()) {
+        if (initialLevelClickHandler === level) {
+          nextSequence();
+          showGamingPattern();
+          updateUI(`Level ${level}`);
+          level++;
+          console.log(gamePattern);
+          console.log(userClickedPattern);
+          userClickedPattern = [];
+        }
+      } else {
+        gameOver();
+      }
+
+      initialLevelClickHandler++;
     }
   });
+}
+
+//Compares between game sequence against user sequence.
+function compareSequence() {
+  for (let i = 0; i < gamePattern.length; i++) {
+    if (gamePattern[i] !== userClickedPattern[i]) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
+
+//Game over handler
+function gameOver() {
+  updateUI("GAME OVER!");
+  playSound("wrong");
+  gameStarted = false;
 }
 
 //Add animation to the user clicks.
@@ -124,3 +134,37 @@ myFirstPromise.then((successMessage) => {
   // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
   console.log(`Yay! ${successMessage}`);
 }); */
+
+/*  gamePattern.forEach((element) => {
+    setTimeout(() => {
+      $(`#${element}`).delay().fadeOut().fadeIn();
+      playSound(element);
+    }, 1000);
+  }); */
+
+/* gamePattern.forEach(() => {
+    new Promise((resolve) => {
+      resolve(setTimeout(() => {}, 1000));
+    }).then((element) => {
+      setTimeout(() => {
+        $(`#${element}`).delay(100).fadeOut().fadeIn();
+        playSound(element);
+        console.log(element);
+      }, 0);
+    });
+  });
+ */
+/* for (const value of gamePattern) {
+    $(`#${value}`).delay().fadeOut().fadeIn();
+    playSound(value);
+    sleep(2000);
+  } */
+
+/* gamePattern.forEach(() => {
+    new Promise((resolve) => {
+      resolve(setTimeout(() => {}, 1000));
+    }).then((element) => {
+      $(`#${element}`).delay(100).fadeOut().fadeIn();
+      playSound(element);
+    });
+  }); */
