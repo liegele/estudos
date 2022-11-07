@@ -5,16 +5,17 @@ let randomNumber, randomChosenColour;
 let level = 1;
 let initialLevelClickHandler = 1;
 let gameStarted = false;
-
+let step = 0;
 let index = 1;
+
 function logger(msg) {
-  console.log(`#${index} ${msg}`);
+  /* console.log(`#${index} ${msg}`);
   console.log(`level: ${level}`);
   console.log(`InitialLevelClickHandler: ${initialLevelClickHandler}`);
   console.log(`gamePattern: ${gamePattern}`);
   console.log(`userClickedPattern: ${userClickedPattern}`);
   console.log(`------------------------------------`);
-  index++;
+  index++; */
   /* console.log(``);
   console.log(``);
   console.log(``);
@@ -24,9 +25,6 @@ function logger(msg) {
   console.log(``); */
 }
 
-$("body").removeClass("backgroundcolorBlue");
-$("body").addClass("backgroundcolorGrey");
-
 //Starting game when 'A' key is pressed.
 $("body").on("keydown", (e) => {
   if (e.key === "a" && gameStarted === false) {
@@ -35,13 +33,14 @@ $("body").on("keydown", (e) => {
     updateUI(`Level ${level}`);
     gamePattern = [];
     nextSequence();
+    // showGamingPattern();
   }
 });
 
 //Update the user interface.
 function updateUI(message) {
   $("#level-title").text(message);
-  $("#step").text(`${initialLevelClickHandler} of ${level}`);
+  $("#step").text(`${step} of ${level} steps`);
 }
 
 //function to block execution of JS.
@@ -54,27 +53,33 @@ function nextSequence() {
   randomNumber = Math.floor(Math.random() * 4);
   randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
-  playAndEffectButton(randomChosenColour);
+  // await sleep(2000);
+  // playAndEffectButton(randomChosenColour);
   updateUI(`Level ${level}`);
   // level++;
   initialLevelClickHandler = 1;
+  showGamingPattern();
   logger("nextSequence");
 }
 
 //Running game pattern until actual level.
 function showGamingPattern() {
-  $("body").removeClass("backgroundcolorBlue");
-  $("body").addClass("backgroundcolorGrey");
   if (initialLevelClickHandler === level) {
     gameStarted = false;
     // aplayAndEffectButton(gamePattern[level - 1]);
-    level++;
+    // level++;
     gamePattern.forEach((element) => {
-      sleep(2000).then(() => {
+      console.log(element);
+      playAndEffectButton(element);
+    });
+
+    /* gamePattern.forEach((element) => {
+      sleep(1000).then(() => {
         logger("showGamingPattern inside forEach");
         playAndEffectButton(element);
       });
-    });
+    }); */
+
     /* sleep(1000).then(()a => {
       showGamingPattern();
     }); */
@@ -83,8 +88,6 @@ function showGamingPattern() {
     logger("showGamingPattern");
   }
   gameStarted = true;
-  $("body").addClass("backgroundcolorBlue");
-  $("body").removeClass("backgroundcolorGrey");
 }
 
 //Playing a sound for chosen colour.
@@ -96,9 +99,10 @@ function playSound(whichColour) {
 }
 
 //Play sound and start button effect.
-function playAndEffectButton(button) {
+async function playAndEffectButton(button) {
   $(`#${button}`).delay().fadeOut().fadeIn();
   playSound(button);
+  await sleep(3000);
 }
 
 //Detecting when a button is clicked, but with event delegation (DIV <- DIV <- BUTTON).
@@ -111,29 +115,41 @@ function clickHandler() {
       animatePress(userChosenColour);
       console.log(initialLevelClickHandler, level);
 
-      console.log(compareSequence());
-      if (compareSequence()) {
+      console.log(compareSequence(step));
+      if (compareSequence(step)) {
         if (initialLevelClickHandler === level) {
           logger("clickHandler");
+          console.log("+++++++++++++++++++++++++++++++");
           nextSequence();
-          showGamingPattern();
+          // showGamingPattern();
           updateUI(`Level ${level}`);
           level++;
           console.log(gamePattern);
           console.log(userClickedPattern);
           userClickedPattern = [];
+          initialLevelClickHandler = 1;
         }
       } else {
         gameOver();
       }
 
       initialLevelClickHandler++;
+      step++;
     }
   });
 }
 
 //Compares between game sequence against user sequence.
-function compareSequence() {
+function compareSequence(actualLevel) {
+  logger("compareSequence");
+  if (gamePattern[actualLevel] === userClickedPattern[actualLevel]) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/* function compareSequence() {
   logger("compareSequence");
   for (let i = 0; i < gamePattern.length; i++) {
     logger("compareSequence inside for loop");
@@ -143,7 +159,7 @@ function compareSequence() {
       return true;
     }
   }
-}
+} */
 
 //Game over handler
 function gameOver() {
