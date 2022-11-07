@@ -30,7 +30,7 @@ $("body").on("keydown", (e) => {
   if (e.key === "a" && gameStarted === false) {
     logger("pressing A");
     gameStarted = true;
-    updateUI(`Level ${level}`);
+    updateUI(`Level ${level}`, "Good luck!");
     gamePattern = [];
     nextSequence();
     // showGamingPattern();
@@ -38,9 +38,11 @@ $("body").on("keydown", (e) => {
 });
 
 //Update the user interface.
-function updateUI(message) {
+function updateUI(message, supportText) {
   $("#level-title").text(message);
-  $("#step").text(`${step} of ${level} steps`);
+  supportText === undefined
+    ? $("#step").text(`${step} of ${level} steps`)
+    : $("#step").text(supportText);
 }
 
 //function to block execution of JS.
@@ -53,8 +55,6 @@ function nextSequence() {
   randomNumber = Math.floor(Math.random() * 4);
   randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
-  // await sleep(2000);
-  // playAndEffectButton(randomChosenColour);
   updateUI(`Level ${level}`);
   // level++;
   initialLevelClickHandler = 1;
@@ -66,25 +66,12 @@ function nextSequence() {
 function showGamingPattern() {
   if (initialLevelClickHandler === level) {
     gameStarted = false;
-    // aplayAndEffectButton(gamePattern[level - 1]);
-    // level++;
-    gamePattern.forEach((element) => {
-      console.log(element);
-      playAndEffectButton(element);
-    });
-
-    /* gamePattern.forEach((element) => {
-      sleep(1000).then(() => {
-        logger("showGamingPattern inside forEach");
+    gamePattern.forEach((element, index) => {
+      setTimeout(() => {
+        console.log(element);
         playAndEffectButton(element);
-      });
-    }); */
-
-    /* sleep(1000).then(()a => {
-      showGamingPattern();
-    }); */
-    /* setTimeout(() => {
-    }, 1000); */
+      }, index * 1000);
+    });
     logger("showGamingPattern");
   }
   gameStarted = true;
@@ -99,10 +86,9 @@ function playSound(whichColour) {
 }
 
 //Play sound and start button effect.
-async function playAndEffectButton(button) {
+function playAndEffectButton(button) {
   $(`#${button}`).delay().fadeOut().fadeIn();
   playSound(button);
-  await sleep(3000);
 }
 
 //Detecting when a button is clicked, but with event delegation (DIV <- DIV <- BUTTON).
@@ -120,14 +106,19 @@ function clickHandler() {
         if (initialLevelClickHandler === level) {
           logger("clickHandler");
           console.log("+++++++++++++++++++++++++++++++");
-          nextSequence();
-          // showGamingPattern();
-          updateUI(`Level ${level}`);
-          level++;
-          console.log(gamePattern);
-          console.log(userClickedPattern);
-          userClickedPattern = [];
-          initialLevelClickHandler = 1;
+          updateUI(`Level ${level}`, "Creating new sequence...");
+          setTimeout(() => {
+            nextSequence();
+            clearTimeout();
+            // showGamingPattern();
+            updateUI(`Level ${level}`);
+            level++;
+            console.log(gamePattern);
+            console.log(userClickedPattern);
+            userClickedPattern = [];
+            initialLevelClickHandler = 1;
+            updateUI(`Level ${level}`);
+          }, 2000);
         }
       } else {
         gameOver();
