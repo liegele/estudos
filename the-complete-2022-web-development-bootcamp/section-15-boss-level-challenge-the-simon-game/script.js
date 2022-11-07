@@ -117,15 +117,16 @@ function clickHandler() {
             console.log(userClickedPattern);
             userClickedPattern = [];
             initialLevelClickHandler = 1;
+            step = 0;
             updateUI(`Level ${level}`);
-          }, 2000);
+          }, 4000);
         }
       } else {
         gameOver();
       }
 
       initialLevelClickHandler++;
-      step++;
+      // step++;
     }
   });
 }
@@ -154,7 +155,7 @@ function compareSequence(actualLevel) {
 
 //Game over handler
 function gameOver() {
-  updateUI("GAME OVER!");
+  updateUI("GAME OVER!", "Best luck next time!");
   playSound("wrong");
   gameStarted = false;
 }
