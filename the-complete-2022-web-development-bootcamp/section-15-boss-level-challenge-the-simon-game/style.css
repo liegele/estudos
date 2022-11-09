@@ -7,7 +7,7 @@ body {
   font-family: "Press Start 2P", cursive;
   background-color: #2f3235;
   font-size: 3rem;
-  margin: 5% auto 0%;
+  margin: 3% auto 0%;
   padding: 2% 5%;
   color: rgb(211, 211, 211);
   border-color: rgb(211, 211, 211);
@@ -22,7 +22,7 @@ body {
 #step {
   font-family: "Press Start 2P", cursive;
   font-size: 1.5rem;
-  margin: 5%;
+  margin: 3%;
   color: rgb(211, 211, 211);
 }
 
