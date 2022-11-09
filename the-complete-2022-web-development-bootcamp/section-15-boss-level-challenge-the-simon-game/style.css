@@ -3,19 +3,27 @@ body {
   background-color: #2f3235;
 }
 
-#level-title,
-#step {
+#level-title {
   font-family: "Press Start 2P", cursive;
+  background-color: #2f3235;
   font-size: 3rem;
-  margin: 5%;
-  color: #fef2bf;
+  margin: 5% auto 0%;
+  padding: 2% 5%;
+  color: rgb(211, 211, 211);
+  border-color: rgb(211, 211, 211);
+  border-style: solid;
+}
+
+#level-title:hover {
+  color: #2f3235;
+  background-color: rgb(211, 211, 211);
 }
 
 #step {
   font-family: "Press Start 2P", cursive;
   font-size: 1.5rem;
   margin: 5%;
-  color: #fef2bf;
+  color: rgb(211, 211, 211);
 }
 
 .container {
@@ -40,14 +48,17 @@ body {
 
 .red {
   background-color: red;
+  border-radius: 5% 35% 5% 5%;
 }
 
 .green {
   background-color: green;
+  border-radius: 35% 5% 5% 5%;
 }
 
 .blue {
   background-color: blue;
+  border-radius: 5% 5% 35% 5%;
 }
 
 .grey {
@@ -56,6 +67,7 @@ body {
 
 .yellow {
   background-color: yellow;
+  border-radius: 5% 5% 5% 35%;
 }
 
 .pressed {
