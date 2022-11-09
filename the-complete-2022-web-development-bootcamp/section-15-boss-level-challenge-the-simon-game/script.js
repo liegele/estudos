@@ -7,7 +7,6 @@ let gameStarted = false;
 //Starting game when Start button is clicked.
 
 $("#level-title").on("click", (e) => {
-  console.log($("button").text());
   if (gameStarted === false) {
     startingGame();
     updateUI(`Level ${level}`, "Good luck!");
@@ -56,7 +55,6 @@ function showGamingPattern() {
     gameStarted = false;
     gamePattern.forEach((element, index) => {
       setTimeout(() => {
-        console.log(element);
         playAndEffectButton(element);
       }, index * 1000);
     });
