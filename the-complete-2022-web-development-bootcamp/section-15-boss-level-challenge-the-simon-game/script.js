@@ -89,8 +89,6 @@ function clickHandler() {
 
       if (compareSequence()) {
         if (initialLevelClickHandler === level) {
-          logger("clickHandler");
-          console.log("+++++++++++++++++++++++++++++++");
           updateUI(`Level ${level}`, "Nice job! Next level is coming...");
           setTimeout(() => {
             nextSequence();
