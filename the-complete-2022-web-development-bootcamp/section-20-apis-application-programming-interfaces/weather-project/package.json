@@ -1,0 +1,11 @@
+{
+  "name": "weather-project",
+  "version": "1.0.0",
+  "description": "A first project using OpenWeather API.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "liégele cabral",
+  "license": "ISC"
+}
