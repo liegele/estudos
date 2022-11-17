@@ -1,11 +1,26 @@
-import { openWeatherApiKey } from "./config";
-
+// const config = require("./config.js");
 const express = require("express");
 const https = require("node:https");
+const bodyParser = require("body-parser");
+
+// import { openWeatherApiKey } from "./config.js";
+// import express from "express";
+// import https from "node:https";
+
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=-12.9822&lon=-38.4812772&appid=${openWeatherApiKey}&units=metric`;
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/", (req, res) => {
+  const query = req.body.cityName;
+  const apiKey = "";
+  const unit = "metric";
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=${unit}`;
+
   https.get(url, (response) => {
     console.log(response.statusCode);
     response.on("data", (data) => {
@@ -14,7 +29,7 @@ app.get("/", (req, res) => {
       // console.log(`${weatherData.main.temp} ºC`);
       const temperature = weatherData.main.temp;
       const mainWeather = weatherData.weather[0].main;
-      const idWeather = weatherData.weather[0].id;
+      const country = weatherData.sys.country;
       const iconWeather = weatherData.weather[0].icon;
       const weatherDescription = weatherData.weather[0].description;
       res.write(`<h1>${mainWeather}</h1>`);
@@ -25,12 +40,11 @@ app.get("/", (req, res) => {
         `<h3>The weather is currently <em>${weatherDescription}</em></h3>`
       );
       res.write(
-        `<h1>The temperature in Salvador is <em>${temperature}</em> degrees celsius.</h1>`
+        `<h1>The temperature in ${query} (${country}) is <em>${temperature}</em> degrees celsius.</h1>`
       );
       res.send();
     });
   });
-  // res.send("Weather app is running...");
 });
 
 app.listen(3000, () => {
