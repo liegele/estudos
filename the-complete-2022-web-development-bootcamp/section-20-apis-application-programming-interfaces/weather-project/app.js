@@ -24,10 +24,8 @@ app.post('/', (req, res) => {
   https.get(url, (response) => {
     console.log(response.statusCode);
     response.on('data', (data) => {
-      //   console.log(data);
       const weatherData = JSON.parse(data);
-      // console.log(`${weatherData.main.temp} ºC`);
-      const temperature = weatherData.main.temp;
+      const temperature = weatherData.main?.temp;
       const mainWeather = weatherData.weather[0].main;
       const country = weatherData.sys.country;
       const iconWeather = weatherData.weather[0].icon;
