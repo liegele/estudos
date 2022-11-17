@@ -1,7 +1,7 @@
 // const config = require("./config.js");
-const express = require("express");
-const https = require("node:https");
-const bodyParser = require("body-parser");
+const express = require('express');
+const https = require('node:https');
+const bodyParser = require('body-parser');
 
 // import { openWeatherApiKey } from "./config.js";
 // import express from "express";
@@ -11,19 +11,19 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });
 
-app.post("/", (req, res) => {
+app.post('/', (req, res) => {
   const query = req.body.cityName;
-  const apiKey = "";
-  const unit = "metric";
+  const apiKey = '';
+  const unit = 'metric';
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=${unit}`;
 
   https.get(url, (response) => {
     console.log(response.statusCode);
-    response.on("data", (data) => {
+    response.on('data', (data) => {
       //   console.log(data);
       const weatherData = JSON.parse(data);
       // console.log(`${weatherData.main.temp} ºC`);
@@ -48,5 +48,5 @@ app.post("/", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Server is listen on port 3000.");
+  console.log('Server is listen on port 3000.');
 });
