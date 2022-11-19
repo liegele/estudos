@@ -100,39 +100,47 @@
     </style>
  -->
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet" />
+    <link href="css/sytle.css" rel="stylesheet" />
   </head>
   <body class="text-center">
     <main class="form-signin w-25 m-auto">
       <form>
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-normal">Signup to my Newsletter!</h1>
 
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control top"
+            id="floatingFirstName"
+            placeholder="floatingFirstName"
+            required
+          />
+          <label for="floatingFirstName">First Name</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control middle"
+            id="floatingLastName"
+            placeholder="floatingLastName"
+            required
+          />
+          <label for="floatingLastName">Last Name</label>
+        </div>
         <div class="form-floating">
           <input
             type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
+            class="form-control bottom"
+            id="floatingEmail"
+            placeholder="floatingEmail"
+            required
           />
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-          />
-          <label for="floatingPassword">Password</label>
+          <label for="floatingEmail">Email</label>
         </div>
 
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
-        </div>
+        <br />
         <button class="w-100 btn btn-lg btn-primary" type="submit">
-          Sign in
+          Sign Me Up!
         </button>
         <p class="mt-5 mb-3 text-muted">&copy; liegele.dev</p>
       </form>
