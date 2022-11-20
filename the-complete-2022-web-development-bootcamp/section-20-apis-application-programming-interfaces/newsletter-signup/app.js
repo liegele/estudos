@@ -13,9 +13,25 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  let firstName = req.body.fName;
-  let lastName = req.body.lName;
-  let email = req.body.email;
+  const firstName = req.body.fName;
+  const lastName = req.body.lName;
+  const email = req.body.email;
+
+  const data = {
+    members: [
+      {
+        email_address: email,
+        status: 'dubscribed',
+        merge_fields: {
+          FNAME: firstName,
+          LNAME: lastName,
+        },
+      },
+    ],
+  };
+
+  const jsonData = JSON.stringify(data);
+
   console.log(`${firstName} :: ${lastName} :: ${email}`);
 });
 
