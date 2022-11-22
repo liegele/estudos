@@ -33,14 +33,15 @@ app.post('/', (req, res) => {
 
   console.log(data.members[0]);
 
-  const jsonData = JSON.stringify(data);
+  /* const jsonData = JSON.stringify(data);
 
-  const url = `https://us14.api.mailchimp.com/3.0/lists/c439257566./members`;
-  // const url = `https://us14.api.mailchimp.com/schema/3.0/lists/c439257566./members`;
+  const listId = 'c439257566';
+
+  const url = `https://us14.api.mailchimp.com/3.0/lists/${listId}/members`;
 
   const options = {
     method: 'POST',
-    auth: 'liegele: b8ec24a3e4040e3feb38c51695494f28-us14',
+    auth: 'liegele: ',
   };
 
   const request = https.request(url, options, (response) => {
@@ -50,36 +51,51 @@ app.post('/', (req, res) => {
   });
 
   request.write(jsonData);
-  request.end();
-
-  // mailchimp.setConfig({
-  //   apiKey: 'b8ec24a3e4040e3feb38c51695494f28',
-  //   server: 'us14',
-  // });
-
-  // const listId = 'c439257566.';
-  // async function run() {
-  //   // const response = await mailchimp.lists.batchListMembers(listId, {
-  //   const response = await mailchimp.lists.addListMember(listId, {
-  //     email_address: data.members[0].email_address,
-  //     status: 'subscribed',
-  //     merge_fields: {
-  //       FNAME: data.members[0].FNAME,
-  //       LNAME: data.members[0].LNAME,
-  //     },
-  //   });
-  //   console.log(
-  //     `Successfully added contact as an audience member. The contact\'s id is ${response.id}`
-  //   );
-  // }
-
-  // console.log(`${firstName} :: ${lastName} :: ${email}`);
-
-  // run();
+  request.end(); */
 
   /* mailchimp.setConfig({
     apiKey: '',
-    server: '',
+    server: 'us14',
+  });
+
+  const run = async () => {
+    const response = await mailchimp.lists.addListMember(listId, {
+      email_address: '456@gmail.com',
+      status: 'subscribed',
+    });
+    console.log(response);
+  };
+
+  run(); */
+
+  mailchimp.setConfig({
+    apiKey: '',
+    server: 'us14',
+  });
+
+  const listId = 'c439257566';
+  async function run() {
+    // const response = await mailchimp.lists.batchListMembers(listId, {
+    const response = await mailchimp.lists.addListMember(listId, {
+      email_address: data.members[0].email_address,
+      status: 'subscribed',
+      merge_fields: {
+        FNAME: data.members[0].FNAME,
+        LNAME: data.members[0].LNAME,
+      },
+    });
+    console.log(
+      `Successfully added contact as an audience member. The contact\'s id is ${response.id}`
+    );
+  }
+
+  console.log(`${firstName} :: ${lastName} :: ${email}`);
+
+  run();
+
+  /*  mailchimp.setConfig({
+    apiKey: '',
+    server: 'us14',
   });
 
   async function run() {
@@ -87,7 +103,7 @@ app.post('/', (req, res) => {
     console.log(response);
   }
 
-  run();*/
+  run(); */
 });
 
 app.listen(3000, () => {
