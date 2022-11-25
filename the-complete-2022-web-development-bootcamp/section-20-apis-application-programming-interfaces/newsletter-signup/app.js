@@ -77,18 +77,25 @@ app.post('/', (req, res) => {
 
   const listId = 'c439257566';
   async function run() {
-    // const response = await mailchimp.lists.batchListMembers(listId, {
-    const response = await mailchimp.lists.addListMember(listId, {
-      email_address: data.members[0].email_address,
-      status: 'subscribed',
-      merge_fields: {
-        FNAME: firstName,
-        LNAME: lastName,
-      },
-    });
-    console.log(
-      `Successfully added contact as an audience member. The contact\'s id is ${response.id}`
-    );
+    try {
+      const response = await mailchimp.lists.addListMember(listId, {
+        email_address: data.members[0].email_address,
+        status: 'subscribed',
+        merge_fields: {
+          FNAME: firstName,
+          LNAME: lastName,
+        },
+      });
+      console.log(
+        `Successfully added contact as an audience member. The contact\'s id is ${response.id}`
+      );
+    } catch (error) {
+      if (error.status !== 200) {
+        console.log(
+          `Oh nooo! There was a problem signing you up! status: ${error.status}`
+        );
+      }
+    }
   }
 
   console.log(`${firstName} :: ${lastName} :: ${email}`);
