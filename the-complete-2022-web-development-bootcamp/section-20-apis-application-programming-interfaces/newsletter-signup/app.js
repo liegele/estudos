@@ -71,7 +71,11 @@ app.post('/', (req, res) => {
   run(); */
 
   mailchimp.setConfig({
+<<<<<<< HEAD
     apiKey: apiKey,
+=======
+    apiKey: '',
+>>>>>>> 11f01702c80800b177c8a0e4a6fa23494163f7ab
     server: 'us14',
   });
 
