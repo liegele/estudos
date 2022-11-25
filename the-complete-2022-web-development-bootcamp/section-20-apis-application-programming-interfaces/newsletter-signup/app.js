@@ -1,3 +1,5 @@
+const { apiKey } = require('./config.js');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
@@ -54,7 +56,7 @@ app.post('/', (req, res) => {
   request.end(); */
 
   /* mailchimp.setConfig({
-    apiKey: '',
+    apiKey: apiKey,
     server: 'us14',
   });
 
@@ -69,7 +71,7 @@ app.post('/', (req, res) => {
   run(); */
 
   mailchimp.setConfig({
-    apiKey: '6fe43195860ba42e3280cc14bc607e7f-us14',
+    apiKey: apiKey,
     server: 'us14',
   });
 
@@ -82,8 +84,6 @@ app.post('/', (req, res) => {
       merge_fields: {
         FNAME: firstName,
         LNAME: lastName,
-        // FNAME: data.members[0].FNAME,
-        // LNAME: data.members[0].LNAME,
       },
     });
     console.log(
@@ -95,8 +95,8 @@ app.post('/', (req, res) => {
 
   run();
 
-  /*  mailchimp.setConfig({
-    apiKey: '',
+  /* mailchimp.setConfig({
+    apiKey: apiKey,
     server: 'us14',
   });
 
@@ -105,7 +105,7 @@ app.post('/', (req, res) => {
     console.log(response);
   }
 
-  run(); */
+  run();*/
 });
 
 app.listen(3000, () => {
