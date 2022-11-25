@@ -69,7 +69,7 @@ app.post('/', (req, res) => {
   run(); */
 
   mailchimp.setConfig({
-    apiKey: '6fe43195860ba42e3280cc14bc607e7f-us14',
+    apiKey: '',
     server: 'us14',
   });
 
