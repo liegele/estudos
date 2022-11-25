@@ -69,7 +69,7 @@ app.post('/', (req, res) => {
   run(); */
 
   mailchimp.setConfig({
-    apiKey: '',
+    apiKey: '6fe43195860ba42e3280cc14bc607e7f-us14',
     server: 'us14',
   });
 
@@ -80,8 +80,10 @@ app.post('/', (req, res) => {
       email_address: data.members[0].email_address,
       status: 'subscribed',
       merge_fields: {
-        FNAME: data.members[0].FNAME,
-        LNAME: data.members[0].LNAME,
+        FNAME: firstName,
+        LNAME: lastName,
+        // FNAME: data.members[0].FNAME,
+        // LNAME: data.members[0].LNAME,
       },
     });
     console.log(
