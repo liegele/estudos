@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const mailchimp = require('@mailchimp/mailchimp_marketing');
 const https = require('https');
+const { response } = require('express');
 
 const app = express();
 
@@ -89,11 +90,14 @@ app.post('/', (req, res) => {
       console.log(
         `Successfully added contact as an audience member. The contact\'s id is ${response.id}`
       );
+      response.sendFile(__dirname + '/success.html');
     } catch (error) {
       if (error.status !== 200) {
         console.log(
           `Oh nooo! There was a problem signing you up! status: ${error.status}`
         );
+
+        // response.sendFile(__dirname + '/failure.html');
       }
     }
   }
