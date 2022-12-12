@@ -1,3 +1,5 @@
+import './style.css';
+
 import * as THREE from 'three';
 
 //Creating a Scene
@@ -14,7 +16,7 @@ scene.add(mesh);
 //Setup the lights
 
 //Ambient light
-const ambientLight = new THREE.ambientLight(0xffffff, 0.6);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 scene.add(ambientLight);
 
 //Directional light
