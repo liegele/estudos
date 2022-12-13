@@ -7,6 +7,15 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x333333);
 
+//Canvas
+const canvas = document.querySelector('canvas.webgl');
+
+//Sizes of screen
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight,
+};
+
 //Add a cube to the scene (Geometry + Material = Mesh)
 const geometry = new THREE.BoxGeometry(3, 1, 3); // width, height, depth
 const material = new THREE.MeshLambertMaterial({ color: 0xfb8e00 });
@@ -28,7 +37,7 @@ scene.add(dirLight);
 //Setup camera
 
 //Perspective camera
-const aspect = window.innerWidth / window.innerHeight;
+const aspect = sizes.width / sizes.height;
 const camera = new THREE.PerspectiveCamera(45, aspect, 1, 100);
 
 /* //Orthographic camera
@@ -44,12 +53,12 @@ camera.position.set(4, 4, 4);
 camera.lookAt(0, 0, 0);
 
 //Renderer
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
+const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvas });
+renderer.setSize(sizes.width, sizes.height);
 renderer.render(scene, camera);
 
 //Controls
-const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 
 //Add it to html
@@ -57,9 +66,11 @@ document.body.appendChild(renderer.domElement);
 
 //Updating renderer after window resized.
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  sizes.width = window.innerWidth;
+  sizes.height = window.innerHeight;
+  camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
