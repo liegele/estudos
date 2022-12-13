@@ -1,6 +1,7 @@
 import './style.css';
 
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 //Creating a Scene
 const scene = new THREE.Scene();
@@ -26,11 +27,11 @@ scene.add(dirLight);
 
 //Setup camera
 
-/* //Perspective camera
+//Perspective camera
 const aspect = window.innerWidth / window.innerHeight;
-const camera = new THREE.PerspectiveCamera(45, aspect, 1, 100); */
+const camera = new THREE.PerspectiveCamera(45, aspect, 1, 100);
 
-//Orthographic camera
+/* //Orthographic camera
 const width = 10;
 const height = width * (window.innerHeight / window.innerWidth);
 const camera = new THREE.OrthographicCamera(
@@ -38,7 +39,7 @@ const camera = new THREE.OrthographicCamera(
   width / 2, // right
   height / 2, // top
   height / -2 // bottom
-);
+); */
 camera.position.set(4, 4, 4);
 camera.lookAt(0, 0, 0);
 
@@ -47,5 +48,18 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.render(scene, camera);
 
+//Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
 //Add it to html
 document.body.appendChild(renderer.domElement);
+
+//Updating renderer after window resized.
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+});
