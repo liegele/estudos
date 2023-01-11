@@ -42,9 +42,9 @@ const checkIn = function (flightNum, passenger) {
   passenger.name = 'Mr. ' + passenger.name;
 
   if (passenger.passport === 24739479284) {
-    alert('Checked in');
+    // alert('Checked in');
   } else {
-    alert('Wrong passport!');
+    // alert('Wrong passport!');
   }
 };
 
@@ -58,3 +58,38 @@ const newPassport = function (person) {
 
 newPassport(jonas);
 checkIn(flight, jonas);
+
+//Immediately Invoke Functions Expressions (IIFE)
+
+const runOnce = function () {
+  console.log('This will never run again.');
+};
+
+runOnce();
+
+//IIFE
+(function () {
+  console.log('This will never run again! Seriously!!!');
+  const isPrivate = 23;
+})();
+
+// console.log(isPrivate);
+
+(() => console.log('This will never run again! Seriously!!!'))();
+
+//Closures
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers.`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
