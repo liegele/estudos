@@ -65,12 +65,61 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-/////////////////////////////////////////////////
+// /////////////////////////////////////////////////
+
+// //At method
+
+// const arr = [23, 11, 64];
+
+// console.log(arr[0]);
+// console.log(arr.at(0));
+
+// console.log(arr[arr.length - 1]);
+// console.log(...arr.slice(-1));
+// console.log(arr.at(-1));
+
+// console.log('liegele'.at(-1));
+
+// //Looping Arrays: ForEach
+
+// // for (const movement of movements) {
+// for (const [index, movement] of movements.entries()) {
+//   movement > 0
+//     ? console.log(`Moviment ${index + 1}: You deposited ${movement}`)
+//     : console.log(`Moviment ${index + 1}: You withdrew ${Math.abs(movement)}`);
+// }
+
+// console.log('--- FOREACH ---');
+
+// // movements.forEach((movement, index, array) => {
+// movements.forEach((movement, index) => {
+//   // console.log(array);
+//   movement > 0
+//     ? console.log(`Moviment ${index + 1}: You deposited ${movement}`)
+//     : console.log(`Moviment ${index + 1}: You withdrew ${Math.abs(movement)}`);
+// });
+
+// //ForEach with Maps and Sets.
+
+// console.log('--- FOREACH MAPS/SETS ---');
+
+// const curr = new Map([
+//   ['USD', 'United states dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound Sterling'],
+// ]);
+
+// curr.forEach((value, key, map) => {
+//   /* console.log(key);
+//   console.log(value);
+//   console.log(map); */
+//   console.log(`${key}: ${value}`);
+// });
