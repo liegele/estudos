@@ -170,7 +170,7 @@ TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const julia1 = [3, 5, 2, 12, 7];
+/* const julia1 = [3, 5, 2, 12, 7];
 const julia2 = [9, 16, 6, 8, 3];
 const kate1 = [4, 1, 15, 8, 3];
 const kate2 = [10, 5, 6, 1, 4];
@@ -192,4 +192,13 @@ const checkDogs = function (dogsJulia, dogsKate) {
 console.log('--- TEST 1 ---');
 checkDogs(julia1, kate1);
 console.log('--- TEST 2 ---');
-checkDogs(julia2, kate2);
+checkDogs(julia2, kate2); */
+
+//MAP method.
+
+const euroToUsd = 1.1;
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const movementsUsd = movements.map(mov => mov * euroToUsd);
+console.log(movements);
+console.log(movementsUsd);
