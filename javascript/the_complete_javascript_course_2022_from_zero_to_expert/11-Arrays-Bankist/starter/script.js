@@ -77,6 +77,19 @@ const displayMovements = function (movements) {
   });
 };
 
+const createUsernames = function (accs) {
+  //TODO
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
+console.log(accounts);
+
 displayMovements(account1.movements);
 
 /////////////////////////////////////////////////
@@ -194,11 +207,11 @@ checkDogs(julia1, kate1);
 console.log('--- TEST 2 ---');
 checkDogs(julia2, kate2); */
 
-//MAP method.
+/* //MAP method.
 
 const euroToUsd = 1.1;
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const movementsUsd = movements.map(mov => mov * euroToUsd);
 console.log(movements);
-console.log(movementsUsd);
+console.log(movementsUsd); */
