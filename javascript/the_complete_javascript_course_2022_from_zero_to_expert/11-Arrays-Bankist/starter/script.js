@@ -76,6 +76,14 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
+displayMovements(account1.movements);
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, cur) => acc + cur);
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcDisplayBalance(account1.movements);
 
 const createUsernames = function (accs) {
   //TODO
@@ -87,10 +95,9 @@ const createUsernames = function (accs) {
       .join('');
   });
 };
-createUsernames(accounts);
-console.log(accounts);
 
-displayMovements(account1.movements);
+createUsernames(accounts);
+// console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -215,3 +222,30 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const movementsUsd = movements.map(mov => mov * euroToUsd);
 console.log(movements);
 console.log(movementsUsd); */
+
+/* // FILTER METHOD
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log('--- FILTER METHOD ---');
+const deposits = movements.filter(mov => mov > 0);
+console.log(deposits); */
+
+/* //REDUCE METHOD
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//Accumlator is like a snow ball
+const balance = movements.reduce((acc, cur, i) => {
+  // console.log(`Iteration ${i}: ${acc}`);
+  return acc + cur;
+}, 0);
+console.log(balance); */
+
+/* //Defining a maximum value with REDUCE METHOD
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const max = movements.reduce(
+  (acc, cur) => (acc < cur ? (acc = cur) : (acc = acc)),
+  movements[0]
+);
+console.log(max); */
