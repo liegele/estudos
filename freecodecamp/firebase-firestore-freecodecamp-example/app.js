@@ -15,6 +15,7 @@ const db = firebase.firestore();
 let username = document.getElementById('username');
 let about = document.getElementById('about');
 const btn = document.getElementById('btn');
+const btnCancel = document.getElementById('btnCancel');
 const lists = document.getElementById('lists');
 
 //Adding data to Firestore database
@@ -25,6 +26,13 @@ btn.addEventListener('click', (e) => {
   username.value = about.value = '';
   // alert('Cadastro realizado.');
   getUsers();
+});
+
+//Cleaning inputs and update button.
+btnCancel.addEventListener('click', (e) => {
+  e.preventDefault();
+  username.value = about.value = '';
+  btn.innerText = 'ADD';
 });
 
 //Reading users from userInfo collection
@@ -50,7 +58,8 @@ const getUsers = function () {
         selectUserButton.addEventListener('click', () => {
           console.log(doc.data().username, doc.data().bio);
           username.value = doc.data().username;
-          about.innerText = doc.data().bio;
+          about.value = doc.data().bio;
+          btn.innerText = 'UPDATE';
         });
         //Creating Delete button
         deleteUserButton.setAttribute('type', 'button');
