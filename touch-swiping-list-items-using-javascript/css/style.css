@@ -61,22 +61,17 @@ body {
   z-index: 1;
   padding: 16px;
   background: #fff;
-  /* border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px; */
-
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
 }
 
 .list .list-content .list-category-0 {
-  width: 18%;
+  width: 15%;
   pointer-events: none;
 }
 
 .list .list-content .caption {
-  width: 77%;
+  width: 80%;
   padding-left: 6px;
   display: grid;
   align-items: center;
@@ -100,7 +95,7 @@ body {
 
 .list .list-content h5 {
   color: #2c3e50;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: 0px;
 }
