@@ -17,6 +17,37 @@ body {
   overflow-x: hidden;
 }
 
+/* begin of navbar */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #2c3e50;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #fff;
+}
+
+/* end of navbar */
+
 .list {
   width: 95%;
 }
@@ -47,12 +78,12 @@ body {
 }
 
 .list .list-content .list-category-0 {
-  width: 17%;
+  width: 15%;
   pointer-events: none;
 }
 
 .list .list-content .caption {
-  width: 83%;
+  width: 80%;
   padding-left: 6px;
   display: grid;
   align-items: center;
@@ -60,12 +91,20 @@ body {
   pointer-events: none;
 }
 
+.list .list-content .amount {
+  width: 5%;
+  justify-content: right;
+  pointer-events: none;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+
 .list .list-content img {
   width: 70px;
   height: 70px;
 }
 
-.list .list-content h4 {
+.list .list-content h5 {
   color: #2c3e50;
   font-size: 26px;
   font-weight: 700;
@@ -76,11 +115,12 @@ body {
   color: #3c5165;
   font-size: 16px;
   font-weight: 500;
-  margin-top: 0px;
+  margin-top: -25px;
 }
 
 .list .list-category-0 {
   color: green;
+  margin-top: 15px;
 }
 
 .list button {
