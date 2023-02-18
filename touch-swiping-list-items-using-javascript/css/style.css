@@ -48,7 +48,6 @@ body {
 
 .list .list-item {
   margin: 10px 0;
-  /* border-left: 10px solid green; */
   border-radius: 10px;
   position: relative;
   display: flex;
@@ -114,7 +113,7 @@ body {
 }
 
 .list .list-category-0 {
-  color: green;
+  color: #3c5165;
   margin-top: 15px;
 }
 
