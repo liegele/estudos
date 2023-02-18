@@ -71,12 +71,12 @@ body {
 }
 
 .list .list-content .list-category-0 {
-  width: 15%;
+  width: 18%;
   pointer-events: none;
 }
 
 .list .list-content .caption {
-  width: 80%;
+  width: 77%;
   padding-left: 6px;
   display: grid;
   align-items: center;
