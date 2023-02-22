@@ -1,4 +1,8 @@
+//Setting DOM elements into variables to further manipulation
 const items = document.querySelectorAll('.list-item');
+const addItems = document.getElementById('add-items');
+const selectItems = document.getElementById('select-items');
+const makeShop = document.getElementById('make-shop');
 
 /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
 let prevScrollpos = window.pageYOffset;
@@ -12,6 +16,7 @@ window.onscroll = function () {
   prevScrollpos = currentScrollPos;
 };
 
+//Swipe items for execute actions
 items.forEach((item) => {
   item.addEventListener('touchstart', (e) => {
     e.target.dataset.x =
