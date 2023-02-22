@@ -1,16 +1,16 @@
 const items = document.querySelectorAll('.list-item');
 
 /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-/* let prevScrollpos = window.pageYOffset;
+let prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
   let currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
-    document.getElementById('navbar').style.top = '0';
+    document.getElementById('navbar-bottom').style.bottom = '0';
   } else {
-    document.getElementById('navbar').style.top = '-80px';
+    document.getElementById('navbar-bottom').style.bottom = '-200px';
   }
   prevScrollpos = currentScrollPos;
-}; */
+};
 
 items.forEach((item) => {
   item.addEventListener('touchstart', (e) => {
