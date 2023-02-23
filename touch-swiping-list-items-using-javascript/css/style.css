@@ -124,24 +124,26 @@ div.scrollmenu a:hover {
 }
 
 .list .list-add-item {
-  background-color: #fff;
   margin: 10px 0;
   border-radius: 10px;
   position: relative;
-  display: flex;
-  align-items: start;
-  justify-content: left;
-  height: 220px;
+  z-index: 2;
+  background-color: #ffffff;
+  height: auto;
+  /* display: flex; */
+  /* align-items: start; */
+  /* justify-content: left; */
 }
 
 .list .list-add-content {
-  display: block;
+  /* display: block; */
   width: 100%;
   z-index: 1;
   padding: 12px;
-  background: #fff;
+  /* background: #bebebe; */
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+  /* display: none; */
 }
 
 .list .list-content {
@@ -233,24 +235,44 @@ div.scrollmenu a:hover {
 
 /* Begin of Add item form */
 
-.form {
+form {
+  display: block;
   margin-top: 15px;
   width: 100%;
   position: relative;
-  height: 60px;
+  height: 230px;
   overflow: hidden;
 }
 
-.form input {
+form input {
   width: 100%;
-  height: 100%;
+  height: 40px;
   color: #2c3e50;
-  font-size: 25px;
-  padding-top: 20px;
-  border: none;
-  /* background-color: #fff; */
+  font-size: 15px;
+  padding-left: 5px;
+  border: 1px solid #2c3e50;
+  background-color: #fff;
+  border-radius: 5px;
 }
-.form label {
+
+#save,
+#clear {
+  border: 0;
+  width: 100px;
+  height: 50px;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  padding: 0 5px;
+  background-color: #3096d1;
+  border-radius: 5px;
+}
+
+.list-add-content button:hover {
+  background-color: #2c3e50;
+}
+
+/* .form label {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -291,7 +313,7 @@ div.scrollmenu a:hover {
 .form input:focus + .label-name::after,
 .form input:valid + .label-name::after {
   transform: translateX(0%);
-}
+} */
 
 /* End of Add item form  */
 

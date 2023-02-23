@@ -36,7 +36,7 @@
         <a href="#Importados">Importados</a>
         <a href="#Bebidas">Bebidas</a>
         <a href="#Frios e Laticínios">Frios e Laticínios</a>
-        <a href="#Mercearia e Limpeza">Mercearia e Limpeza</a>
+        <a href="#Mercearia">Mercearia</a>
         <a href="#Limpeza">Limpeza</a>
         <a href="#Congelados">Congelados</a>
         <a href="#Higiene e Beleza">Higiene e Beleza</a>
@@ -61,20 +61,36 @@
     <div class="list">
       <div class="list-add-item">
         <div class="list-add-content">
-          <!-- <div class="bx bx-list-plus bx-lg list-category-0"></div> -->
           <h2>Adicionar novo item</h2>
-          <div class="form">
+          <form action="">
+            <label for="item">Digite o nome do item</label>
+            <input type="text" name="item" id="item" required /><br /><br />
+            <label for="category">Selecione a categoria</label>
             <input
-              type="text"
-              name="text"
-              autocomplete="off"
-              autofocus="true"
+              list="category-item"
+              name="category"
+              id="category"
               required
             />
-            <label for="text" class="label-name">
-              <span class="content-name">Digite o nome do item </span>
-            </label>
-          </div>
+            <datalist id="category-item">
+              <option value="Hortifruti"></option>
+              <option value="Padaria"></option>
+              <option value="Carnes e Aves"></option>
+              <option value="Importados"></option>
+              <option value="Bebidas"></option>
+              <option value="Frios e Laticínios"></option>
+              <option value="Mercearia"></option>
+              <option value="Limpeza"></option>
+              <option value="Congelados"></option>
+              <option value="Higiene e Beleza"></option>
+              <option value="Petshop"></option>
+              <option value="Utensílios Domésticos"></option>
+              <option value="Restaurantes"></option>
+            </datalist>
+            <br /><br />
+            <button id="save">Salvar</button>
+            <button id="clear">Limpar</button>
+          </form>
         </div>
       </div>
       <div class="list-item">
