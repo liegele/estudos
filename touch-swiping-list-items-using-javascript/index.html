@@ -24,7 +24,7 @@
     />
 
     <!-- CSS File -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -59,37 +59,38 @@
       </div>
     </nav>
     <div class="list">
-      <div class="list-add-item">
+      <div class="list-add-item invisible">
         <div class="list-add-content">
           <h2>Adicionar novo item</h2>
           <form action="">
-            <label for="item">Digite o nome do item</label>
-            <input type="text" name="item" id="item" required /><br /><br />
             <label for="category">Selecione a categoria</label>
+            <select name="category" id="category" required>
+              <option value="null"></option>
+              <option value="0">Hortifruti</option>
+              <option value="1">Padaria</option>
+              <option value="2">Carnes e Aves</option>
+              <option value="3">Importados</option>
+              <option value="4">Bebidas</option>
+              <option value="5">Frios e Laticínios</option>
+              <option value="6">Mercearia</option>
+              <option value="7">Limpeza</option>
+              <option value="8">Congelados</option>
+              <option value="9">Higiene e Belez</option>
+              <option value="10">Petshop</option>
+              <option value="11">Utensílios Domésticos</option>
+              <option value="12">Restaurantes</option></select
+            ><br /><br />
+            <label for="item">Digite o nome do item</label>
             <input
-              list="category-item"
-              name="category"
-              id="category"
+              type="text"
+              name="item"
+              id="item"
               required
+              autocomplete="off"
             />
-            <datalist id="category-item">
-              <option value="Hortifruti"></option>
-              <option value="Padaria"></option>
-              <option value="Carnes e Aves"></option>
-              <option value="Importados"></option>
-              <option value="Bebidas"></option>
-              <option value="Frios e Laticínios"></option>
-              <option value="Mercearia"></option>
-              <option value="Limpeza"></option>
-              <option value="Congelados"></option>
-              <option value="Higiene e Beleza"></option>
-              <option value="Petshop"></option>
-              <option value="Utensílios Domésticos"></option>
-              <option value="Restaurantes"></option>
-            </datalist>
             <br /><br />
-            <button id="save">Salvar</button>
-            <button id="clear">Limpar</button>
+            <button id="save-button" type="button">Salvar</button>
+            <button id="clear-button" type="button">Limpar</button>
           </form>
         </div>
       </div>
@@ -303,6 +304,6 @@
     </div>
 
     <!-- JS File -->
-    <script src="js/script.js" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
   </body>
 </html>
