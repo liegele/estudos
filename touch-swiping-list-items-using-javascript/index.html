@@ -42,7 +42,6 @@
         <a href="#Higiene e Beleza">Higiene e Beleza</a>
         <a href="#Petshop">Petshop</a>
         <a href="#Utensílios Domésticos">Utensílios Domésticos</a>
-        <a href="#Restaurantes">Restaurantes</a>
       </div>
     </nav>
     <nav id="navbar-bottom" class="navbar-bottom">
@@ -64,7 +63,7 @@
           <h2>Adicionar novo item</h2>
           <form action="">
             <label for="category">Selecione a categoria</label>
-            <select name="category" id="category" required>
+            <select name="category" id="category-select" required>
               <option value="null"></option>
               <option value="0">Hortifruti</option>
               <option value="1">Padaria</option>
@@ -75,16 +74,15 @@
               <option value="6">Mercearia</option>
               <option value="7">Limpeza</option>
               <option value="8">Congelados</option>
-              <option value="9">Higiene e Belez</option>
+              <option value="9">Higiene e Beleza</option>
               <option value="10">Petshop</option>
-              <option value="11">Utensílios Domésticos</option>
-              <option value="12">Restaurantes</option></select
+              <option value="11">Utensílios Domésticos</option></select
             ><br /><br />
             <label for="item">Digite o nome do item</label>
             <input
               type="text"
               name="item"
-              id="item"
+              id="item-input"
               required
               autocomplete="off"
             />
@@ -95,7 +93,7 @@
         </div>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -111,14 +109,14 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>
         </button>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -134,14 +132,14 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>
         </button>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -157,14 +155,14 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>
         </button>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -180,14 +178,14 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>
         </button>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -203,14 +201,14 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>
         </button>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -226,14 +224,14 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>
         </button>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -249,14 +247,14 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>
         </button>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -272,14 +270,14 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>
         </button>
       </div>
       <div class="list-item">
-        <button class="settings">
+        <button name="settings-button" class="settings">
           <div class="list-icon">
             <i class="bx bx-list-check"></i>
           </div>
@@ -295,7 +293,7 @@
             <i class="bx bx-minus-circle bx-md"></i>
           </div>
         </div>
-        <button class="delete">
+        <button name="delete-button" class="delete">
           <div class="list-icon">
             <i class="bx bxs-trash"></i>
           </div>

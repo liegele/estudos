@@ -5,34 +5,74 @@ const selectItemsButton = document.getElementById('select-items');
 const makeShopButton = document.getElementById('make-shop');
 const saveButton = document.getElementById('save-button');
 const clearButton = document.getElementById('clear-button');
+const categorySelect = document.getElementById('category-select');
+const itemInput = document.getElementById('item-input');
+
+//Setting visibility of buttons according with chosen mode.
+const toggleButtons = (elementName, classIn, classOut) => {
+  console.log(elementName, classIn, classOut);
+  document.getElementsByName(elementName).forEach((el, key) => {
+    document
+      .getElementsByName(elementName)
+      [key].classList.replace(classOut, classIn);
+  });
+};
 
 //------------------------------------------------------------
-//ADD NEW ITEMS MODE
+//ADD ITEMS MODE
 //------------------------------------------------------------
 
+//Add button actions
 addItemsButton.addEventListener('click', () => {
-  document.querySelector('.list-add-item').classList.remove('invisible');
-  document.querySelector('.settings').classList.add('invisible');
+  addItemsButton.classList.add('dark-color');
+  toggleButtons('settings-button', 'settings-invisible', 'settings');
+  toggleButtons('delete-button', 'delete', 'delete-invisible');
+  slidedown.play();
 });
 
-//------------------------------------------------------------
+//Clear button actions
+clearButton.addEventListener('click', () => {
+  categorySelect.value = itemInput.value = '';
+});
+
+let slidedown = anime({
+  targets: '.list-add-item',
+  translateY: ['-150px', '0px'],
+  duration: 1000,
+  autoplay: false,
+  begin: function () {
+    document.querySelector('.list-add-item').classList.remove('invisible');
+  },
+});
+
+let slideup = anime({
+  targets: '.list-add-item',
+  translateY: ['0px', '-150px'],
+  duration: 1000,
+  autoplay: false,
+  begin: function () {
+    document.querySelector('.list-add-item').classList.add('invisible');
+  },
+});
 
 //------------------------------------------------------------
 //SELECT ITEMS MODE
 //------------------------------------------------------------
 
 selectItemsButton.addEventListener('click', () => {
-  document.querySelector('.list-add-item').classList.add('invisible');
+  slideup.play();
+  toggleButtons('settings-button', 'settings', 'settings-invisible');
+  toggleButtons('delete-button', 'delete-invisible', 'delete');
 });
-
-//------------------------------------------------------------
 
 //------------------------------------------------------------
 //MAKE SHOP MODE
 //------------------------------------------------------------
 
 makeShopButton.addEventListener('click', () => {
-  document.querySelector('.list-add-item').classList.add('invisible');
+  slideup.play();
+  toggleButtons('settings-button', 'settings', 'settings-invisible');
+  toggleButtons('delete-button', 'delete-invisible', 'delete');
 });
 
 //------------------------------------------------------------
