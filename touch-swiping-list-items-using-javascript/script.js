@@ -8,9 +8,14 @@ const clearButton = document.getElementById('clear-button');
 const categorySelect = document.getElementById('category-select');
 const itemInput = document.getElementById('item-input');
 
+//Array for MODE options [add, select, shop] available in application.
+const mode = ['add', 'select', 'shop'];
+
+//App will start on SHOP MODE.
+let currentMode = mode[2];
+
 //Setting visibility of buttons according with chosen mode.
-const toggleButtons = (elementName, classIn, classOut) => {
-  console.log(elementName, classIn, classOut);
+const toggleElements = (elementName, classIn, classOut) => {
   document.getElementsByName(elementName).forEach((el, key) => {
     document
       .getElementsByName(elementName)
@@ -24,9 +29,13 @@ const toggleButtons = (elementName, classIn, classOut) => {
 
 //Add button actions
 addItemsButton.addEventListener('click', () => {
+  currentMode = mode[0];
   addItemsButton.classList.add('dark-color');
-  toggleButtons('settings-button', 'settings-invisible', 'settings');
-  toggleButtons('delete-button', 'delete', 'delete-invisible');
+  toggleElements('settings-button', 'settings-invisible', 'settings');
+  toggleElements('delete-button', 'delete', 'delete-invisible');
+  toggleElements('left-icon', 'list-category-0-invisible', 'list-category-0');
+  toggleElements('right-icon', 'amount-invisible', 'amount');
+
   slidedown.play();
 });
 
@@ -60,9 +69,13 @@ let slideup = anime({
 //------------------------------------------------------------
 
 selectItemsButton.addEventListener('click', () => {
+  currentMode = mode[1];
   slideup.play();
-  toggleButtons('settings-button', 'settings', 'settings-invisible');
-  toggleButtons('delete-button', 'delete-invisible', 'delete');
+  toggleElements('settings-button', 'settings', 'settings-invisible');
+  toggleElements('delete-button', 'delete-invisible', 'delete');
+  toggleElements('left-icon', 'list-category-0', 'list-category-0-invisible');
+  toggleElements('left-icon', 'bx-checkbox', 'bx-cart');
+  toggleElements('right-icon', 'amount', 'amount-invisible');
 });
 
 //------------------------------------------------------------
@@ -70,9 +83,13 @@ selectItemsButton.addEventListener('click', () => {
 //------------------------------------------------------------
 
 makeShopButton.addEventListener('click', () => {
+  currentMode = mode[2];
   slideup.play();
-  toggleButtons('settings-button', 'settings', 'settings-invisible');
-  toggleButtons('delete-button', 'delete-invisible', 'delete');
+  toggleElements('settings-button', 'settings', 'settings-invisible');
+  toggleElements('delete-button', 'delete-invisible', 'delete');
+  toggleElements('left-icon', 'list-category-0', 'list-category-0-invisible');
+  toggleElements('left-icon', 'bx-cart', 'bx-checkbox');
+  toggleElements('right-icon', 'amount-invisible', 'amount');
 });
 
 //------------------------------------------------------------
