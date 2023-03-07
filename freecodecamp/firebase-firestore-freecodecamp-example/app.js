@@ -18,6 +18,33 @@ const btn = document.getElementById('btn');
 const btnCancel = document.getElementById('btnCancel');
 const lists = document.getElementById('lists');
 
+//Shoplist's JSON model
+let list = {
+  created: firebase.firestore.FieldValue.serverTimestamp(),
+  modified: '163585389123',
+  accessPermission: [
+    {
+      email: 'aniziacaoliveira@gmail.com',
+      mode: 'write',
+    },
+  ],
+  listItems: [
+    {
+      category: 'Hortifruti',
+      name: 'Banana',
+      amount: '10',
+      price: '8.10',
+      'price-timestamp': '',
+      'last-price': '7.50',
+      'last-price-timestamp': '',
+      selected: 'true',
+      search: 'banana',
+    },
+  ],
+};
+
+console.log('----> ', list.listItems[0].category);
+
 //Adding OR Updating data to Firestore database
 btn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -169,10 +196,7 @@ getUsers();
 //Add user data to userInfo collection using SET()
 const addUsers = function () {
   console.log(db.collection('userInfo'));
-  db.collection('userInfo').doc('liegele@gmail.com').set({
-    username: username.value,
-    bio: about.value,
-  });
+  db.collection('userInfo').doc('liegele@gmail.com').set(list);
   getUsers();
 };
 /*
