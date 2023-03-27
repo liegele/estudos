@@ -22,13 +22,13 @@ const lists = document.getElementById('lists');
 let list = {
   created: firebase.firestore.FieldValue.serverTimestamp(),
   modified: '163585389123',
-  accessPermission: [
+  access: [
     {
       email: 'aniziacaoliveira@gmail.com',
       mode: 'write',
     },
   ],
-  listItems: [
+  items: [
     {
       category: 'Hortifruti',
       name: 'Banana',
@@ -43,7 +43,7 @@ let list = {
   ],
 };
 
-console.log('----> ', list.listItems[0].category);
+console.log('----> ', list.items[0].category);
 
 //Adding OR Updating data to Firestore database
 btn.addEventListener('click', (e) => {
