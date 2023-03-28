@@ -6,7 +6,7 @@ const morgan = require('morgan');
 //Load env vars
 dotenv.config({ path: './config/config.env' });
 
-//Routes
+//Route files
 const bootcamps = require('./routes/bootcamps');
 
 const app = express();
