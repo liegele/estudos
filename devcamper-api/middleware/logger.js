@@ -1,4 +1,4 @@
-// @desc        Logs request o console
+// @desc        Logs request to console
 
 const logger = (req, res, next) => {
   req.hello = 'Hello World';
