@@ -1,7 +1,24 @@
-import React from 'react';
+import '../../assets/css/style.css';
+import React, { useState } from 'react';
 
 const App = () => {
-  return <div>Hello World!</div>;
+  const [posts, setPosts] = useState(initialPosts);
+
+  return (
+    <div className="container">
+      <div className="feed">
+        {initialPosts.map((post, i) => (
+          <div id={post.id} className="post">
+            <div className="header">
+              <img src={post.user.avatar} />
+              <h2>{post.user.username}</h2>
+            </div>
+            <p className="content">{post.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 const initialPosts = [
