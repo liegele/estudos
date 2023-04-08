@@ -1,5 +1,6 @@
-import '../../assets/css/style.css';
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import '../../assets/css/style.css';
 
 const initialPosts = [
   {
@@ -34,12 +35,21 @@ const App = () => {
         username: 'Fake User',
       },
     };
+    console.log(newPost);
+
     setPosts([newPost, ...posts]);
     setPostContent('');
   };
 
   return (
     <div className="container">
+      <Helmet>
+        <title>Graphbook - Feed</title>
+        <meta
+          name="description"
+          content="Newsfeed of all your friends on Graphbook"
+        />
+      </Helmet>
       <div className="postForm">
         <form onSubmit={handleSubmit}>
           <textarea
@@ -51,7 +61,7 @@ const App = () => {
         </form>
       </div>
       <div className="feed">
-        {initialPosts.map((post, i) => (
+        {posts.map((post, i) => (
           <div key={post.id} className="post">
             <div className="header">
               <img src={post.user.avatar} />
