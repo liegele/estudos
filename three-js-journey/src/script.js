@@ -3,6 +3,10 @@ import * as THREE from 'three';
 //Scene
 const scene = new THREE.Scene();
 
+//Axes helper
+const axesHelper = new THREE.AxesHelper(2);
+scene.add(axesHelper);
+
 //Getting canvas element in HTML
 const canvas = document.querySelector('canvas.webgl');
 
