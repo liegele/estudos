@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import gsap from 'gsap';
 
 //Scene
 const scene = new THREE.Scene();
@@ -16,9 +17,9 @@ const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
 const mesh = new THREE.Mesh(geometry, material);
 
 //Adding object to the scene
-// scene.add(mesh);
+scene.add(mesh);
 
-//Creating 3 Objects and putting all in a Group.
+/* //Creating 3 Objects and putting all in a Group.
 const group = new THREE.Group();
 group.scale.y = 1;
 group.rotation.z = 0.25;
@@ -43,7 +44,7 @@ const cube3 = new THREE.Mesh(
   new THREE.MeshBasicMaterial({ color: 0xff0000 })
 );
 cube3.position.x = 1.5;
-group.add(cube3);
+group.add(cube3); */
 
 //Sizes
 const sizes = {
@@ -62,4 +63,25 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(sizes.width, sizes.height);
 
-renderer.render(scene, camera);
+let clock = new THREE.Clock();
+
+//Animate
+
+gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 });
+
+const tick = () => {
+  //Time
+  const elapseTime = clock.getElapsedTime();
+
+  /* //Update object rotation
+  mesh.position.x = Math.cos(elapseTime);
+  mesh.position.y = Math.sin(elapseTime); */
+  // camera.lookAt(mesh.position);
+
+  //Render
+  renderer.render(scene, camera);
+
+  window.requestAnimationFrame(tick);
+};
+
+tick();
