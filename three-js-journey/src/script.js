@@ -70,7 +70,21 @@ const camera = new THREE.OrthographicCamera(
   100
 ); */
 camera.position.z = 3;
+camera.lookAt(mesh.position);
 scene.add(camera);
+
+//Cursor
+
+const cursor = {
+  x: 0,
+  y: 0,
+};
+
+window.addEventListener('mousemove', (event) => {
+  cursor.x = event.clientX / sizes.width - 0.5;
+  cursor.y = -(event.clientY / sizes.height - 0.5);
+  console.log(cursor.x, cursor.y);
+});
 
 //Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -92,6 +106,14 @@ const tick = () => {
   mesh.position.x = Math.cos(elapseTime);
   mesh.position.y = Math.sin(elapseTime); */
   // camera.lookAt(mesh.position);
+
+  //Update camera
+  camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 2;
+  camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 2;
+  camera.position.y = cursor.y * 3;
+  // camera.position.x = cursor.x * 5;
+  // camera.position.y = cursor.y * 5;
+  camera.lookAt(mesh.position);
 
   //Render
   renderer.render(scene, camera);
