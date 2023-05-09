@@ -1,9 +1,13 @@
 import * as THREE from 'three';
 import gsap from 'gsap';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import * as dat from 'lil-gui';
 
 //Scene
 const scene = new THREE.Scene();
+
+//Debug
+const gui = new dat.GUI();
 
 //Axes helper
 const axesHelper = new THREE.AxesHelper(2);
@@ -14,7 +18,11 @@ const canvas = document.querySelector('canvas.webgl');
 
 //Object
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+// const geometry = new THREE.SphereGeometry(1, 32, 32);
+const material = new THREE.MeshBasicMaterial({
+  color: 0xff0000,
+  wireframe: false,
+});
 const mesh = new THREE.Mesh(geometry, material);
 
 //Adding object to the scene
