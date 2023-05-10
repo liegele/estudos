@@ -3,10 +3,18 @@ import gsap from 'gsap';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as dat from 'lil-gui';
 
+//Color parameter
+const parameters = {
+  color: 0xff0000,
+  spin: () => {
+    gsap.to(mesh.rotation, { duration: 1, y: mesh.rotation.y + Math.PI * 2 });
+  },
+};
+
 //Scene
 const scene = new THREE.Scene();
 
-//Debug
+//Debug UI
 const gui = new dat.GUI();
 
 //Axes helper
@@ -20,7 +28,7 @@ const canvas = document.querySelector('canvas.webgl');
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 // const geometry = new THREE.SphereGeometry(1, 32, 32);
 const material = new THREE.MeshBasicMaterial({
-  color: 0xff0000,
+  color: parameters.color,
   wireframe: false,
 });
 const mesh = new THREE.Mesh(geometry, material);
@@ -143,6 +151,21 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 
 let clock = new THREE.Clock();
+
+//Debug UI elements
+
+gui.add(mesh.position, 'x', -3, 3, 0.01);
+gui.add(mesh.position, 'y', -3, 3, 0.01);
+gui.add(mesh.position, 'z', -3, 3, 0.01);
+
+gui.add(mesh, 'visible');
+gui.add(material, 'wireframe');
+
+gui.addColor(parameters, 'color').onChange(() => {
+  material.color.set(parameters.color);
+});
+
+gui.add(parameters, 'spin');
 
 //Animate
 
