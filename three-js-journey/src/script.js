@@ -3,6 +3,8 @@ import gsap from 'gsap';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as dat from 'lil-gui';
 
+const imageSource = '/image.png';
+
 //Color parameter
 const parameters = {
   color: 0xff0000,
@@ -24,11 +26,27 @@ scene.add(axesHelper);
 //Getting canvas element in HTML
 const canvas = document.querySelector('canvas.webgl');
 
+//LoadingManager and TextureLoader
+const loadingManager = new THREE.LoadingManager();
+const textureLoader = new THREE.TextureLoader();
+// const texture = textureLoader.load('/textures/door/color.jpg');
+
+const colorTexture = textureLoader.load('/textures/door/color.jpg');
+const alphaTexture = textureLoader.load('/textures/door/alpha.jpg');
+const heightTexture = textureLoader.load('/textures/door/height.jpg');
+const normalTexture = textureLoader.load('/textures/door/normal.jpg');
+const ambientOcclusionTexture = textureLoader.load(
+  '/textures/door/ambientOcclusion.jpg'
+);
+const metalnessTexture = textureLoader.load('/textures/door/metalness.jpg');
+const roughnessTexture = textureLoader.load('/textures/door/roughness.jpg');
+
 //Object
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 // const geometry = new THREE.SphereGeometry(1, 32, 32);
 const material = new THREE.MeshBasicMaterial({
-  color: parameters.color,
+  map: colorTexture,
+  // color: parameters.color,
   wireframe: false,
 });
 const mesh = new THREE.Mesh(geometry, material);
