@@ -31,15 +31,33 @@ const loadingManager = new THREE.LoadingManager();
 const textureLoader = new THREE.TextureLoader();
 // const texture = textureLoader.load('/textures/door/color.jpg');
 
-const colorTexture = textureLoader.load('/textures/door/color.jpg');
-const alphaTexture = textureLoader.load('/textures/door/alpha.jpg');
+// const colorTexture = textureLoader.load('/textures/door/color.jpg');
+// const colorTexture = textureLoader.load('/textures/checkerboard-8x8.png');
+const colorTexture = textureLoader.load('/textures/minecraft.png');
+colorTexture.wrapS = THREE.RepeatWrapping;
+colorTexture.wrapT = THREE.RepeatWrapping;
+
+// colorTexture.minFilter = THREE.NearestFilter;
+// colorTexture.magFilter = THREE.LinearFilter;
+colorTexture.generateMipmaps = false;
+colorTexture.magFilter = THREE.NearestFilter;
+
+// colorTexture.offset.y = 0.5;
+// colorTexture.wrapS = THREE.MirroredRepeatWrapping;
+// colorTexture.wrapT = THREE.MirroredRepeatWrapping;
+
+// colorTexture.rotation = Math.PI * 0.25;
+// colorTexture.center.x = 0.5;
+// colorTexture.center.y = 0.5;
+
+/* const alphaTexture = textureLoader.load('/textures/door/alpha.jpg');
 const heightTexture = textureLoader.load('/textures/door/height.jpg');
 const normalTexture = textureLoader.load('/textures/door/normal.jpg');
 const ambientOcclusionTexture = textureLoader.load(
   '/textures/door/ambientOcclusion.jpg'
 );
 const metalnessTexture = textureLoader.load('/textures/door/metalness.jpg');
-const roughnessTexture = textureLoader.load('/textures/door/roughness.jpg');
+const roughnessTexture = textureLoader.load('/textures/door/roughness.jpg'); */
 
 //Object
 const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -184,6 +202,10 @@ gui.addColor(parameters, 'color').onChange(() => {
 });
 
 gui.add(parameters, 'spin');
+gui.add(colorTexture.offset, 'x').name('offset x').min(-1).max(1).step(0.01);
+gui.add(colorTexture.offset, 'y').name('offset y').min(-1).max(1).step(0.01);
+gui.add(colorTexture.repeat, 'x').name('repeat x').min(1).max(10).step(1);
+gui.add(colorTexture.repeat, 'y').name('repeat y').min(1).max(10).step(1);
 
 //Animate
 
@@ -193,10 +215,10 @@ const tick = () => {
   //Time
   const elapseTime = clock.getElapsedTime();
 
-  /* //Update object rotation
-  mesh.position.x = Math.cos(elapseTime);
-  mesh.position.y = Math.sin(elapseTime); */
-  // camera.lookAt(mesh.position);
+  //Update object rotation
+  /*   mesh.position.x = Math.cos(elapseTime);
+  mesh.position.y = Math.sin(elapseTime);
+  camera.lookAt(mesh.position); */
 
   /* //Update camera
   camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 2;
