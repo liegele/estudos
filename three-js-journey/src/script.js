@@ -7,17 +7,17 @@ const imageSource = '/image.png';
 
 //Color parameter
 const parameters = {
-  color: 0xff0000,
-  spin: () => {
+  color: 0xffffff,
+  /* spin: () => {
     gsap.to(mesh.rotation, { duration: 1, y: mesh.rotation.y + Math.PI * 2 });
-  },
+  }, */
 };
 
 //Scene
 const scene = new THREE.Scene();
 
 //Debug UI
-const gui = new dat.GUI();
+// const gui = new dat.GUI();
 
 //Axes helper
 const axesHelper = new THREE.AxesHelper(2);
@@ -29,18 +29,18 @@ const canvas = document.querySelector('canvas.webgl');
 //LoadingManager and TextureLoader
 const loadingManager = new THREE.LoadingManager();
 const textureLoader = new THREE.TextureLoader();
-// const texture = textureLoader.load('/textures/door/color.jpg');
+const texture = textureLoader.load('/textures/door/color.jpg');
 
-// const colorTexture = textureLoader.load('/textures/door/color.jpg');
+const doorColorTexture = textureLoader.load('/textures/door/color.jpg');
 // const colorTexture = textureLoader.load('/textures/checkerboard-8x8.png');
-const colorTexture = textureLoader.load('/textures/minecraft.png');
+/* const colorTexture = textureLoader.load('/textures/minecraft.png');
 colorTexture.wrapS = THREE.RepeatWrapping;
 colorTexture.wrapT = THREE.RepeatWrapping;
-
+ */
 // colorTexture.minFilter = THREE.NearestFilter;
 // colorTexture.magFilter = THREE.LinearFilter;
-colorTexture.generateMipmaps = false;
-colorTexture.magFilter = THREE.NearestFilter;
+/* colorTexture.generateMipmaps = false;
+colorTexture.magFilter = THREE.NearestFilter; */
 
 // colorTexture.offset.y = 0.5;
 // colorTexture.wrapS = THREE.MirroredRepeatWrapping;
@@ -50,17 +50,44 @@ colorTexture.magFilter = THREE.NearestFilter;
 // colorTexture.center.x = 0.5;
 // colorTexture.center.y = 0.5;
 
-/* const alphaTexture = textureLoader.load('/textures/door/alpha.jpg');
+const alphaTexture = textureLoader.load('/textures/door/alpha.jpg');
 const heightTexture = textureLoader.load('/textures/door/height.jpg');
 const normalTexture = textureLoader.load('/textures/door/normal.jpg');
 const ambientOcclusionTexture = textureLoader.load(
   '/textures/door/ambientOcclusion.jpg'
 );
 const metalnessTexture = textureLoader.load('/textures/door/metalness.jpg');
-const roughnessTexture = textureLoader.load('/textures/door/roughness.jpg'); */
+const roughnessTexture = textureLoader.load('/textures/door/roughness.jpg');
+const matcapTexture = textureLoader.load('/textures/matcaps/3.png');
+const gradientTexture = textureLoader.load('/textures/gradients/3.jpg');
 
 //Object
-const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+const material = new THREE.MeshMatcapMaterial();
+// material.map = doorColorTexture;
+// material.color = new THREE.Color(0xff0000);
+// material.wireframe = true;
+// material.transparent = true;
+// material.alphaMap = doorColorTexture;
+// material.opacity = 0.5;
+// material.side = THREE.DoubleSide;
+material.flatShading = true;
+material.matcap = matcapTexture;
+
+const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 16, 16), material);
+sphere.position.x = -1.5;
+
+const plane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), material);
+
+const torus = new THREE.Mesh(
+  new THREE.TorusGeometry(0.3, 0.2, 16, 32),
+  material
+);
+torus.position.x = 1.5;
+
+scene.add(sphere, plane, torus);
+
+/* const geometry = new THREE.BoxGeometry(1, 1, 1);
 // const geometry = new THREE.SphereGeometry(1, 32, 32);
 const material = new THREE.MeshBasicMaterial({
   map: colorTexture,
@@ -71,7 +98,7 @@ const mesh = new THREE.Mesh(geometry, material);
 
 //Adding object to the scene
 scene.add(mesh);
-
+ */
 /* //Creating 3 Objects and putting all in a Group.
 const group = new THREE.Group();
 group.scale.y = 1;
@@ -159,8 +186,9 @@ const camera = new THREE.OrthographicCamera(
   0.1,
   100
 ); */
-camera.position.z = 3;
-camera.lookAt(mesh.position);
+// /*
+camera.position.z = 4;
+// camera.lookAt(torus.position);
 scene.add(camera);
 
 //Cursor
@@ -190,7 +218,7 @@ let clock = new THREE.Clock();
 
 //Debug UI elements
 
-gui.add(mesh.position, 'x', -3, 3, 0.01);
+/* gui.add(mesh.position, 'x', -3, 3, 0.01);
 gui.add(mesh.position, 'y', -3, 3, 0.01);
 gui.add(mesh.position, 'z', -3, 3, 0.01);
 
@@ -205,7 +233,7 @@ gui.add(parameters, 'spin');
 gui.add(colorTexture.offset, 'x').name('offset x').min(-1).max(1).step(0.01);
 gui.add(colorTexture.offset, 'y').name('offset y').min(-1).max(1).step(0.01);
 gui.add(colorTexture.repeat, 'x').name('repeat x').min(1).max(10).step(1);
-gui.add(colorTexture.repeat, 'y').name('repeat y').min(1).max(10).step(1);
+gui.add(colorTexture.repeat, 'y').name('repeat y').min(1).max(10).step(1); */
 
 //Animate
 
@@ -231,6 +259,14 @@ const tick = () => {
   /* //Redefining Target property
   controls.target.y = -2;
   controls.update(); */
+
+  sphere.rotation.y = 0.1 * elapseTime;
+  plane.rotation.y = 0.1 * elapseTime;
+  torus.rotation.y = 0.1 * elapseTime;
+
+  sphere.rotation.x = 0.1 * elapseTime;
+  plane.rotation.x = 0.1 * elapseTime;
+  torus.rotation.x = 0.1 * elapseTime;
 
   controls.update();
 
