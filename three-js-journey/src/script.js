@@ -17,7 +17,7 @@ const parameters = {
 const scene = new THREE.Scene();
 
 //Debug UI
-// const gui = new dat.GUI();
+const gui = new dat.GUI();
 
 //Axes helper
 const axesHelper = new THREE.AxesHelper(2);
@@ -25,6 +25,16 @@ scene.add(axesHelper);
 
 //Getting canvas element in HTML
 const canvas = document.querySelector('canvas.webgl');
+
+//Lights
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+
+const pointLight = new THREE.PointLight(0xffffff, 0.5);
+pointLight.position.x = 2;
+pointLight.position.y = 3;
+pointLight.positionz = 4;
+scene.add(pointLight);
 
 //LoadingManager and TextureLoader
 const loadingManager = new THREE.LoadingManager();
@@ -59,11 +69,26 @@ const ambientOcclusionTexture = textureLoader.load(
 const metalnessTexture = textureLoader.load('/textures/door/metalness.jpg');
 const roughnessTexture = textureLoader.load('/textures/door/roughness.jpg');
 const matcapTexture = textureLoader.load('/textures/matcaps/3.png');
-const gradientTexture = textureLoader.load('/textures/gradients/3.jpg');
+const gradientTexture = textureLoader.load('/textures/gradients/5.jpg');
+
+const file = '1';
+const cubeTextureLoader = new THREE.CubeTextureLoader();
+const environmentMapTexture = cubeTextureLoader.load([
+  `textures/environmentMaps/${file}/px.jpg`,
+  `textures/environmentMaps/${file}/nx.jpg`,
+  `textures/environmentMaps/${file}/py.jpg`,
+  `textures/environmentMaps/${file}/ny.jpg`,
+  `textures/environmentMaps/${file}/pz.jpg`,
+  `textures/environmentMaps/${file}/nz.jpg`,
+]);
 
 //Object
 
-const material = new THREE.MeshMatcapMaterial();
+const material = new THREE.MeshStandardMaterial();
+// const material = new THREE.MeshStandardMaterial();
+// const material = new THREE.MeshPhongMaterial();
+// const material = new THREE.MeshLambertMaterial();
+// const material = new THREE.MeshMatcapMaterial();
 // material.map = doorColorTexture;
 // material.color = new THREE.Color(0xff0000);
 // material.wireframe = true;
@@ -71,19 +96,55 @@ const material = new THREE.MeshMatcapMaterial();
 // material.alphaMap = doorColorTexture;
 // material.opacity = 0.5;
 // material.side = THREE.DoubleSide;
-material.flatShading = true;
-material.matcap = matcapTexture;
+// material.matcap = matcapTexture;
+// material.shininess = 100;
+// material.specular = new THREE.Color(0x118811);
+// material.gradientMap = gradientTexture;
+// gradientTexture.minFilter = THREE.NearestFilter;
+// gradientTexture.magFilter = THREE.NearestFilter;
+// gradientTexture.generateMipmaps = false;
+// material.flatShading = true;
 
-const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 16, 16), material);
+// material.map = doorColorTexture;
+// material.aoMap = ambientOcclusionTexture;
+// material.aoMapIntensity = 1;
+// material.displacementMap = heightTexture;
+// material.displacementScale = 0.05;
+// material.metalnessMap = metalnessTexture;
+// material.roughnessMap = roughnessTexture;
+// material.metalness = 0;
+// material.roughness = 1;
+// material.normalMap = normalTexture;
+// material.normalScale.set(0.5, 0.5);
+// material.transparent = true;
+// material.alphaMap = alphaTexture;
+material.metalness = 0.7;
+material.roughness = 0.2;
+material.envMap = environmentMapTexture;
+
+const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 64, 64), material);
 sphere.position.x = -1.5;
 
-const plane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), material);
+const plane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material);
 
 const torus = new THREE.Mesh(
-  new THREE.TorusGeometry(0.3, 0.2, 16, 32),
+  new THREE.TorusGeometry(0.3, 0.2, 64, 128),
   material
 );
 torus.position.x = 1.5;
+
+sphere.geometry.setAttribute(
+  'uv2',
+  new THREE.BufferAttribute(sphere.geometry.attributes.uv.array, 2)
+);
+plane.geometry.setAttribute(
+  'uv2',
+  new THREE.BufferAttribute(plane.geometry.attributes.uv.array, 2)
+);
+torus.geometry.setAttribute(
+  'uv2',
+  new THREE.BufferAttribute(torus.geometry.attributes.uv.array, 2)
+);
 
 scene.add(sphere, plane, torus);
 
@@ -234,6 +295,9 @@ gui.add(colorTexture.offset, 'x').name('offset x').min(-1).max(1).step(0.01);
 gui.add(colorTexture.offset, 'y').name('offset y').min(-1).max(1).step(0.01);
 gui.add(colorTexture.repeat, 'x').name('repeat x').min(1).max(10).step(1);
 gui.add(colorTexture.repeat, 'y').name('repeat y').min(1).max(10).step(1); */
+
+gui.add(material, 'metalness').min(0).max(1).step(0.0001);
+gui.add(material, 'roughness').min(0).max(1).step(0.0001);
 
 //Animate
 
