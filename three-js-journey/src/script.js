@@ -18,6 +18,7 @@ const parameters = {
 
 //Scene
 const scene = new THREE.Scene();
+// scene.background = new THREE.Color('rgb(33, 42, 49)');
 scene.background = new THREE.Color('rgb(20, 20, 20)');
 
 //Debug UI
@@ -205,6 +206,7 @@ loader.load(
   (gltf) => {
     const model = gltf.scene;
     scene.add(model);
+    model.position.y = -0.3;
   },
   undefined,
   (error) => {
@@ -309,9 +311,9 @@ const camera = new THREE.OrthographicCamera(
   100
 ); */
 // /*
-camera.position.set(0, 0.7, 3);
+camera.position.set(0, 0.6, 2.5);
 
-// camera.lookAt(torus.position);
+camera.lookAt(light.target);
 scene.add(camera);
 
 //Cursor
