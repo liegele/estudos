@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as dat from 'lil-gui';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const imageSource = '/image.png';
 
@@ -23,21 +24,27 @@ scene.background = new THREE.Color('rgb(20, 20, 20)');
 // const gui = new dat.GUI();
 
 //Axes helper
-/* const axesHelper = new THREE.AxesHelper(2);
-scene.add(axesHelper); */
+// const axesHelper = new THREE.AxesHelper(2);
+// scene.add(axesHelper);
 
 //Getting canvas element in HTML
 const canvas = document.querySelector('canvas.webgl');
 
 //Lights
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
-const pointLight = new THREE.PointLight(0xffffff, 0.5);
+const pointLight = new THREE.PointLight(0xffffff, 1.3);
 pointLight.position.x = 2;
 pointLight.position.y = 3;
-pointLight.positionz = 4;
+pointLight.position.z = 4;
 scene.add(pointLight);
+
+const light = new THREE.DirectionalLight(0xffffff, 2);
+light.position.set(0, 3, 4);
+light.target.position.set(-4, 0, -3);
+scene.add(light);
+scene.add(light.target);
 
 // //LoadingManager and TextureLoader
 // const loadingManager = new THREE.LoadingManager();
@@ -74,16 +81,16 @@ scene.add(pointLight);
 // const matcapTexture = textureLoader.load('/textures/matcaps/3.png');
 // const gradientTexture = textureLoader.load('/textures/gradients/5.jpg');
 
-const file = '1';
-const cubeTextureLoader = new THREE.CubeTextureLoader();
-const environmentMapTexture = cubeTextureLoader.load([
-  `textures/environmentMaps/${file}/px.jpg`,
-  `textures/environmentMaps/${file}/nx.jpg`,
-  `textures/environmentMaps/${file}/py.jpg`,
-  `textures/environmentMaps/${file}/ny.jpg`,
-  `textures/environmentMaps/${file}/pz.jpg`,
-  `textures/environmentMaps/${file}/nz.jpg`,
-]);
+// const file = '1';
+// const cubeTextureLoader = new THREE.CubeTextureLoader();
+// const environmentMapTexture = cubeTextureLoader.load([
+//   `textures/environmentMaps/${file}/px.jpg`,
+//   `textures/environmentMaps/${file}/nx.jpg`,
+//   `textures/environmentMaps/${file}/py.jpg`,
+//   `textures/environmentMaps/${file}/ny.jpg`,
+//   `textures/environmentMaps/${file}/pz.jpg`,
+//   `textures/environmentMaps/${file}/nz.jpg`,
+// ]);
 
 //Object
 
@@ -120,10 +127,10 @@ const material = new THREE.MeshStandardMaterial();
 // material.normalScale.set(0.5, 0.5);
 // material.transparent = true;
 // material.alphaMap = alphaTexture;
-material.flatShading = true;
-material.metalness = 1;
-material.roughness = 0.45;
-material.envMap = environmentMapTexture;
+// material.flatShading = true;
+// material.metalness = 0.5;
+// material.roughness = 0.45;
+// material.envMap = environmentMapTexture;
 
 /* const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 64, 64), material);
 sphere.position.x = -1.5;
@@ -190,14 +197,28 @@ const cube3 = new THREE.Mesh(
 cube3.position.x = 1.5;
 group.add(cube3); */
 
+//Models
+
+const loader = new GLTFLoader();
+loader.load(
+  '/models/robot.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    scene.add(model);
+  },
+  undefined,
+  (error) => {
+    console.log(error);
+  }
+);
 //Fonts
 
-const fontLoader = new FontLoader();
+/* const fontLoader = new FontLoader();
 fontLoader.load('/fonts/helvetiker_regular.typeface.json', (font) => {
   const textGeometry = new TextGeometry('liegele.dev', {
     font: font,
-    size: 0.75,
-    height: 0.4,
+    size: 0.4,
+    height: 0.1,
     curveSegments: 24,
     bevelEnabled: true,
     bevelThickness: 0.03,
@@ -207,12 +228,12 @@ fontLoader.load('/fonts/helvetiker_regular.typeface.json', (font) => {
   });
   // const textMaterial = new THREE.MeshBasicMaterial();
   const text = new THREE.Mesh(textGeometry, material);
-  // text.position.y = 1;
+  text.position.y = 1.2;
   textGeometry.computeBoundingBox();
   textGeometry.center();
   scene.add(text);
 
-  const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45);
+    const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45);
 
   for (let i = 0; i < 400; i++) {
     const donut = new THREE.Mesh(donutGeometry, material);
@@ -225,7 +246,7 @@ fontLoader.load('/fonts/helvetiker_regular.typeface.json', (font) => {
     donut.scale.set(scale, scale, scale);
     scene.add(donut);
   }
-});
+}); */
 
 //Sizes
 const sizes = {
@@ -288,7 +309,8 @@ const camera = new THREE.OrthographicCamera(
   100
 ); */
 // /*
-camera.position.z = 9;
+camera.position.set(0, 0.7, 3);
+
 // camera.lookAt(torus.position);
 scene.add(camera);
 
@@ -312,6 +334,8 @@ controls.enableDamping = true;
 //Renderer
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
+  antialias: true,
+  alpha: true,
 });
 renderer.setSize(sizes.width, sizes.height);
 
@@ -338,6 +362,11 @@ gui.add(colorTexture.repeat, 'y').name('repeat y').min(1).max(10).step(1); */
 
 // gui.add(material, 'metalness').min(0).max(1).step(0.0001);
 // gui.add(material, 'roughness').min(0).max(1).step(0.0001);
+
+// gui.add(light, 'intensity', 0, 3, 0.01);
+// gui.add(light.target.position, 'x', -10, 10);
+// gui.add(light.target.position, 'z', -10, 10);
+// gui.add(light.target.position, 'y', 0, 10);
 
 //Animate
 
